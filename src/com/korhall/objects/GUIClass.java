@@ -12,28 +12,21 @@ import java.awt.event.ActionListener;
 public class GUIClass
 {
     JFrame mainFrame;
-    JPanel textPanel;
-    JPanel GUIPanel;
-    JPanel charPanel;
-    JPanel managePanel;
+
     JTextArea mainText;
     JButton nextButton;
     JTextField textFieldNextPoint;
     JLabel labelPointNumber;
-    JLabel labelMainText;
     GameText gameText;
 
 
-
-
-
+// listener для кнопки перехода к следующему фрагменту текста. Получает содержимое текстового поля и переводит его в Int
+// после чего int используется в качестве индекса для массива с текстом книги.
     public class NextPoint implements ActionListener {
-
-
         @Override
         public void actionPerformed(ActionEvent e) {
-//            labelMainText.setText((String) gameText.gameTextet[0]);
-            mainText.setText((String) gameText.gameTextet[0]);
+            int i = Integer.parseInt(textFieldNextPoint.getText());
+            mainText.setText((String) gameText.gameTextet[i]);
         }
     }
 
@@ -46,24 +39,18 @@ public class GUIClass
         mainFrame = new JFrame("Тайна капитана Шелтона");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-//        блок инициализации графических компонентов
-        textPanel = new JPanel();
-        GUIPanel = new JPanel();
-        charPanel = new JPanel();
-        managePanel = new JPanel();
-
         ImageIcon iconNextButton = new ImageIcon("Symbol Forward 2.gif");
         nextButton = new JButton("Далее", iconNextButton);
+//        nextButton.setPreferredSize(new Dimension(30, 100));
+
         mainText = new JTextArea();
+        mainText.setEditable(false);
+        mainText.setFont(new Font("Raster Fonts",Font.TRUETYPE_FONT,14));
+
         textFieldNextPoint = new JTextField(50);
         labelPointNumber = new JLabel();
-        labelMainText = new JLabel();
 
-
-        mainText.setEditable(false);
-
-
+//      создание Box-ов
         Box menuBox = Box.createVerticalBox();
         menuBox.setBorder(new TitledBorder("Меню"));
 
@@ -72,17 +59,13 @@ public class GUIClass
 
         Box textBox = Box.createHorizontalBox();
         textBox.setBorder(new TitledBorder("Тайна капитана Шелтона"));
-//        textBox.setBackground(Color.white);
-
 
         Box manageBox = Box.createHorizontalBox();
         //        manageBox.setBorder(new TitledBorder(""));
 
 
-// блок задания размеров элементов
 
         mainFrame.setSize(1024, 1280);
-//        mainFrame.setBackground(Color.white);
         textFieldNextPoint.setBackground(Color.LIGHT_GRAY);
         textFieldNextPoint.setMaximumSize(new Dimension(60, 40));
         nextButton.setSize(60, 40);
@@ -105,35 +88,14 @@ public class GUIClass
         manageBox.add(textFieldNextPoint);
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(nextButton);
-       // textBox.add(labelMainText);
-       textBox.add(mainText);
+        textBox.add(mainText);
 
-
-
-
-        textPanel.add(mainText);
-
-
-
-       mainFrame.add(textPanel);
-       mainFrame.add(GUIPanel);
-       mainFrame.add(charPanel);
-       mainFrame.add(managePanel);
 
         //      блок настройки раскладки
-
-//        mainFrame.getContentPane().add(BorderLayout.CENTER, textPanel);
-//        mainFrame.getContentPane().add(BorderLayout.EAST, charPanel);
-//        mainFrame.getContentPane().add(BorderLayout.SOUTH, managePanel);
         mainFrame.getContentPane().add(BorderLayout.EAST, characterBox);
         mainFrame.getContentPane().add(BorderLayout.CENTER, textBox);
-
-//        mainFrame.getContentPane().add(BorderLayout.NORTH, GUIPanel);
-          mainFrame.getContentPane().add(BorderLayout.NORTH, menuBox);
-
+        mainFrame.getContentPane().add(BorderLayout.NORTH, menuBox);
         mainFrame.getContentPane().add(BorderLayout.SOUTH, manageBox);
-
-
 
         mainFrame.setVisible(true);
 
