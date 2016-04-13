@@ -5,5 +5,5 @@ package com.korhall.objects;
  */
 public class GameText
 {
-    String[] gameText = {"pokj4egoi jrtg  geriog oiregeruher gerugh ihg regregh ohgurweeugh reugwgh erugh uwg ", "", "" };
+    String[] gameTextet = {"pokj4egoi jrtg  geriog oiregeruher gerugh ihg regregh ohgurweeugh reugwgh erugh uwg ", "", "" };
 }
