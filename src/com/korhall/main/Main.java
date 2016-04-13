@@ -9,7 +9,6 @@ public class Main {
     {
 
        GUIClass guiClass = new GUIClass();
-       // System.out.print("апрекр ке");
-	// write your code here
+
     }
 }
