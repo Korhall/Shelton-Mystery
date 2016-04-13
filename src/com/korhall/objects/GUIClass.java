@@ -43,7 +43,7 @@ public class GUIClass
 
         // добавление элементов к панелям
         managePanel.add(textFieldNextPoint, FlowLayout.LEFT);
-      
+
 
 
         managePanel.add(nextButton);
