@@ -1,10 +1,6 @@
-package com.company;
-import javax.swing.*;
-import java.awt.ActiveEvent.*;
-import java.awt.Event.*;
-import java.awt.*;
+package com.korhall.main;
 
-import com.company.GUIClass;
+import com.korhall.objects.GUIClass;
 
 public class Main {
 

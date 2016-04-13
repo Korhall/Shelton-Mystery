@@ -1,4 +1,4 @@
-package com.company;
+package com.korhall.objects;
 
 /**
  * Created by srv3 on 28.01.2016.

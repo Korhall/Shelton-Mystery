@@ -1,8 +1,6 @@
-package com.company;
+package com.korhall.objects;
 
 import javax.swing.*;
-import java.awt.ActiveEvent.*;
-import java.awt.Event.*;
 import java.awt.*;
 /**
  * Created by srv3 on 27.01.2016.
