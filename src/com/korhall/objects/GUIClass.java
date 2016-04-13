@@ -15,9 +15,23 @@ public class GUIClass
 
     JTextArea mainText;
     JButton nextButton;
+    JButton buttonAbout;
+    JButton buttonSaveCurrentProgress;
     JTextField textFieldNextPoint;
     JLabel labelPointNumber;
+    JLabel labelPreviousPoint;
+    JLabel labelPreviousPointNumber;
+
+
+
     GameText gameText;
+
+    Box menuBox;
+    Box characterBox;
+    Box textBox;
+    Box manageBox;
+
+
 
 
 // listener для кнопки перехода к следующему фрагменту текста. Получает содержимое текстового поля и переводит его в Int
@@ -27,8 +41,20 @@ public class GUIClass
         public void actionPerformed(ActionEvent e) {
             int i = Integer.parseInt(textFieldNextPoint.getText());
             mainText.setText((String) gameText.gameTextet[i]);
+
         }
     }
+
+    public class AboutThisProgramm implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    }
+
+
+
 
 
     public GUIClass ()
@@ -41,46 +67,47 @@ public class GUIClass
 
         ImageIcon iconNextButton = new ImageIcon("Symbol Forward 2.gif");
         nextButton = new JButton("Далее", iconNextButton);
-//        nextButton.setPreferredSize(new Dimension(30, 100));
+ //       nextButton.setPreferredSize(new Dimension(30, 100));
+//        nextButton.setSize(60, 40);
+        nextButton.addActionListener(new NextPoint());
+        buttonAbout = new JButton("О программе");
+        buttonSaveCurrentProgress = new JButton("Сохранить");
+
 
         mainText = new JTextArea();
         mainText.setEditable(false);
-        mainText.setFont(new Font("Raster Fonts",Font.TRUETYPE_FONT,14));
+        mainText.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
 
         textFieldNextPoint = new JTextField(50);
+
         labelPointNumber = new JLabel();
+        labelPointNumber.setText("Введите номер параграфа: ");
+        labelPreviousPoint = new JLabel();
+        labelPreviousPoint.setText("Предыдущий параграф :");
+        labelPreviousPointNumber = new JLabel();
+
 
 //      создание Box-ов
-        Box menuBox = Box.createVerticalBox();
+        menuBox = Box.createHorizontalBox();
         menuBox.setBorder(new TitledBorder("Меню"));
 
-        Box characterBox = Box.createVerticalBox();
+        characterBox = Box.createVerticalBox();
         characterBox.setBorder(new TitledBorder("Персонаж"));
 
-        Box textBox = Box.createHorizontalBox();
+        textBox = Box.createHorizontalBox();
         textBox.setBorder(new TitledBorder("Тайна капитана Шелтона"));
 
-        Box manageBox = Box.createHorizontalBox();
+        manageBox = Box.createHorizontalBox();
         //        manageBox.setBorder(new TitledBorder(""));
-
 
 
         mainFrame.setSize(1024, 1280);
         textFieldNextPoint.setBackground(Color.LIGHT_GRAY);
         textFieldNextPoint.setMaximumSize(new Dimension(60, 40));
-        nextButton.setSize(60, 40);
-
-        labelPointNumber.setText("Введите номер параграфа: ");
-
-        nextButton.addActionListener(new NextPoint());
 
 
-        // добавление элементов к панелям
-        /*managePanel.setLayout(new BoxLayout(managePanel, BoxLayout.X_AXIS));
-        managePanel.add(labelPointNumber);
-        managePanel.add(textFieldNextPoint);
-        managePanel.add(nextButton);
-        */
+
+
 
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(labelPointNumber);
@@ -88,7 +115,21 @@ public class GUIClass
         manageBox.add(textFieldNextPoint);
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(nextButton);
+        manageBox.add(Box.createHorizontalStrut(10));
+        manageBox.add(labelPreviousPoint);
+        manageBox.add(Box.createHorizontalStrut(10));
+        manageBox.add(labelPreviousPointNumber);
+        manageBox.add(Box.createHorizontalStrut(10));
+
+
+
         textBox.add(mainText);
+
+        menuBox.add(Box.createHorizontalStrut(10));
+        menuBox.add(buttonSaveCurrentProgress);
+        menuBox.add(Box.createHorizontalStrut(10));
+        menuBox.add(buttonAbout);
+
 
 
         //      блок настройки раскладки
