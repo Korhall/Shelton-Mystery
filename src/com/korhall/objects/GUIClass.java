@@ -5,6 +5,8 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+/*import org.pushingpixels.substance.api.*;
+import org.pushingpixels.substance.api.skin.*;*/
 
 /**
  * Created by srv3 on 27.01.2016.
@@ -19,6 +21,8 @@ public class GUIClass
     JButton buttonSaveCurrentProgress;
     JTextField textFieldNextPoint;
     JLabel labelPointNumber;
+    JLabel labelCharacterAttack;
+    JLabel labelCharacterHealth;
 
 
     GameText gameText;
@@ -56,15 +60,21 @@ public class GUIClass
 
     public GUIClass ()
     {
+      /*  SubstanceLookAndFeel laf = new SubstanceGeminiLookAndFeel();
+        UIManager.setLookAndFeel(laf);*/
+
         JFrame.setDefaultLookAndFeelDecorated(true); // изменяет внешний вид фрэйма. Возможно эту строку я удалю.
+        JDialog.setDefaultLookAndFeelDecorated(true);
+
+
 
         gameText=new GameText();
         mainFrame = new JFrame("Тайна капитана Шелтона");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-//        ImageIcon iconNextButton = new ImageIcon("Symbol Forward 2.gif");
-//        Icon iccn = UIManager.getIcon("Symbol Forward 2.gif");
-        nextButton = new JButton("Далее");
+        ImageIcon iconNextButton = new ImageIcon("Symbol_Forward_2.gif");
+
+        nextButton = new JButton("Далее", iconNextButton);
  //       nextButton.setPreferredSize(new Dimension(30, 100));
 //        nextButton.setSize(60, 40);
         nextButton.addActionListener(new NextPoint());
@@ -80,6 +90,10 @@ public class GUIClass
 
         labelPointNumber = new JLabel();
         labelPointNumber.setText("Введите номер параграфа: ");
+        labelCharacterAttack = new JLabel();
+        labelCharacterAttack.setText("Атака:");
+        labelCharacterHealth = new JLabel();
+        labelCharacterHealth.setText("Здоровье: ");
 
 
 
@@ -87,7 +101,7 @@ public class GUIClass
         menuBox = Box.createHorizontalBox();
         menuBox.setBorder(new TitledBorder("Меню"));
 
-        characterBox = Box.createVerticalBox();
+        characterBox = Box.createHorizontalBox();
         characterBox.setBorder(new TitledBorder("Персонаж"));
 
         textBox = Box.createHorizontalBox();
@@ -107,14 +121,20 @@ public class GUIClass
 
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(labelPointNumber);
+
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(textFieldNextPoint);
+
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(nextButton);
         manageBox.add(Box.createHorizontalStrut(10));
 
-
-
+        characterBox.add(Box.createHorizontalStrut(10));
+        characterBox.add(labelCharacterHealth);
+        characterBox.add(Box.createHorizontalStrut(10));
+//        characterBox.add(Box.createVerticalStrut(10));
+        characterBox.add(labelCharacterAttack);
+        characterBox.add(Box.createHorizontalStrut(10));
 
         textBox.add(mainText);
 
