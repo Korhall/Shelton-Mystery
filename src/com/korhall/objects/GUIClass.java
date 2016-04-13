@@ -19,9 +19,6 @@ public class GUIClass
     JButton buttonSaveCurrentProgress;
     JTextField textFieldNextPoint;
     JLabel labelPointNumber;
-    JLabel labelPreviousPoint;
-    JLabel labelPreviousPointNumber;
-
 
 
     GameText gameText;
@@ -65,8 +62,9 @@ public class GUIClass
         mainFrame = new JFrame("Тайна капитана Шелтона");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ImageIcon iconNextButton = new ImageIcon("Symbol Forward 2.gif");
-        nextButton = new JButton("Далее", iconNextButton);
+//        ImageIcon iconNextButton = new ImageIcon("Symbol Forward 2.gif");
+//        Icon iccn = UIManager.getIcon("Symbol Forward 2.gif");
+        nextButton = new JButton("Далее");
  //       nextButton.setPreferredSize(new Dimension(30, 100));
 //        nextButton.setSize(60, 40);
         nextButton.addActionListener(new NextPoint());
@@ -82,9 +80,7 @@ public class GUIClass
 
         labelPointNumber = new JLabel();
         labelPointNumber.setText("Введите номер параграфа: ");
-        labelPreviousPoint = new JLabel();
-        labelPreviousPoint.setText("Предыдущий параграф :");
-        labelPreviousPointNumber = new JLabel();
+
 
 
 //      создание Box-ов
@@ -116,10 +112,7 @@ public class GUIClass
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(nextButton);
         manageBox.add(Box.createHorizontalStrut(10));
-        manageBox.add(labelPreviousPoint);
-        manageBox.add(Box.createHorizontalStrut(10));
-        manageBox.add(labelPreviousPointNumber);
-        manageBox.add(Box.createHorizontalStrut(10));
+
 
 
 
