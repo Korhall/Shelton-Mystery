@@ -1,6 +1,7 @@
 package com.korhall.objects;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,6 +17,8 @@ public class GUIClass
     JFrame mainFrame;
 
     JTextArea mainText;
+    JTextArea textAreaNotes;
+
     JButton nextButton;
     JButton buttonAbout;
     JButton buttonSaveCurrentProgress;
@@ -44,7 +47,7 @@ public class GUIClass
         @Override
         public void actionPerformed(ActionEvent e) {
             int i = Integer.parseInt(textFieldNextPoint.getText());
-            mainText.setText((String) gameText.gameTextet[i]);
+            mainText.setText(gameText.gameTextet[i]);
 
         }
     }
@@ -81,6 +84,7 @@ public class GUIClass
         gameText=new GameText();
         mainFrame = new JFrame("Тайна капитана Шелтона");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setSize(1024, 1280);
 
         ImageIcon iconNextButton = new ImageIcon("Symbol_Forward_2.gif");
 
@@ -101,8 +105,23 @@ public class GUIClass
         mainText.setAutoscrolls(true);
         mainText.setText(gameText.gameTextet[0]);
         mainText.setLineWrap(true);
+        mainText.setBorder(new LineBorder(Color.DARK_GRAY));
+   //     mainText.setMinimumSize(new Dimension(1200, 800));
+
+        textAreaNotes = new JTextArea();
+        textAreaNotes.setEditable(true);
+        textAreaNotes.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        textAreaNotes.setWrapStyleWord(true);
+        textAreaNotes.setAutoscrolls(true);
+        textAreaNotes.setLineWrap(true);
+        textAreaNotes.setBorder(new LineBorder(Color.DARK_GRAY));
+        //textAreaNotes.setToolTipText("Здесь вы можете делать заметки");
+        textAreaNotes.setText("Здесь вы можете делать заметки");
+
 
         textFieldNextPoint = new JTextField(50);
+        textFieldNextPoint.setBackground(Color.LIGHT_GRAY);
+        textFieldNextPoint.setMaximumSize(new Dimension(60, 40));
 
         labelPointNumber = new JLabel();
         labelPointNumber.setText("Введите номер параграфа: ");
@@ -120,16 +139,16 @@ public class GUIClass
         characterBox = Box.createHorizontalBox();
         characterBox.setBorder(new TitledBorder("Персонаж"));
 
-        textBox = Box.createHorizontalBox();
+        textBox = Box.createVerticalBox();
         textBox.setBorder(new TitledBorder("Тайна капитана Шелтона"));
 
         manageBox = Box.createHorizontalBox();
         manageBox.setBorder(new TitledBorder("Управление"));
 
-        mainFrame.setSize(1024, 1280);
-        textFieldNextPoint.setBackground(Color.LIGHT_GRAY);
-        textFieldNextPoint.setMaximumSize(new Dimension(60, 40));
 
+
+
+        // добавление элементов к Box'ам
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(labelPointNumber);
 
@@ -148,6 +167,8 @@ public class GUIClass
         characterBox.add(Box.createHorizontalStrut(10));
 
         textBox.add(mainText);
+        textBox.add(Box.createVerticalStrut(10));
+        textBox.add(textAreaNotes);
 
         menuBox.add(Box.createHorizontalStrut(10));
         menuBox.add(buttonNewGame);
