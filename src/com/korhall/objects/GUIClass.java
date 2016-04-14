@@ -41,6 +41,7 @@ public class GUIClass
     JLabel labelCurrentDiceStatus;
     JLabel labelDiceThrowResult;
 
+    JScrollPane scrollPaneNotes;
 
     GameText gameText;
 
@@ -137,15 +138,21 @@ public class GUIClass
         mainText.setBorder(new LineBorder(Color.DARK_GRAY));
    //     mainText.setMinimumSize(new Dimension(1200, 800));
 
+        scrollPaneNotes = new JScrollPane();
+        scrollPaneNotes.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPaneNotes.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+
         textAreaNotes = new JTextArea();
         textAreaNotes.setEditable(true);
         textAreaNotes.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
         textAreaNotes.setWrapStyleWord(true);
-       // textAreaNotes.setAutoscrolls(true);
+        //textAreaNotes.setAutoscrolls(true);
         textAreaNotes.setLineWrap(true);
         textAreaNotes.setBorder(new LineBorder(Color.DARK_GRAY));
         //textAreaNotes.setToolTipText("Здесь вы можете делать заметки");
         textAreaNotes.setText("Здесь вы можете делать заметки");
+     //   textAreaNotes.add(scrollPaneNotes);
 
 
         textFieldNextPoint = new JTextField(50);
@@ -208,6 +215,7 @@ public class GUIClass
         textBox.add(mainText);
         textBox.add(Box.createVerticalStrut(10));
         textBox.add(textAreaNotes);
+        textBox.add(scrollPaneNotes);
 
         menuBox.add(Box.createHorizontalStrut(10));
         menuBox.add(buttonNewGame);
