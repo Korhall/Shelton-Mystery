@@ -31,12 +31,15 @@ public class GUIClass
     JButton buttonAbout;
     JButton buttonSaveCurrentProgress;
     JButton buttonNewGame;
+    JButton buttonThrowDice;
 
     JTextField textFieldNextPoint;
 
     JLabel labelPointNumber;
     JLabel labelCharacterAttack;
     JLabel labelCharacterHealth;
+    JLabel labelCurrentDiceStatus;
+    JLabel labelDiceThrowResult;
 
 
     GameText gameText;
@@ -58,6 +61,22 @@ public class GUIClass
             mainText.setText(gameText.gameTextet[i]);
 
         }
+    }
+
+    public class ThrowDice implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int i=0;
+            while (i == 0) {
+                i = (int) (Math.random() * 7);
+                String str = Integer.toString(i);
+                labelCurrentDiceStatus.setText(str);
+            }
+
+        }
+
+
     }
 
     public class AboutThisProgramm implements ActionListener{
@@ -104,6 +123,8 @@ public class GUIClass
         buttonSaveCurrentProgress = new JButton("Сохранить");
         buttonNewGame = new JButton("Новая игра");
         buttonNewGame.addActionListener(new NewGame());
+        buttonThrowDice = new JButton("Бросить кубик");
+        buttonThrowDice.addActionListener(new ThrowDice());
 
 
         mainText = new JTextArea();
@@ -120,7 +141,7 @@ public class GUIClass
         textAreaNotes.setEditable(true);
         textAreaNotes.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
         textAreaNotes.setWrapStyleWord(true);
-        textAreaNotes.setAutoscrolls(true);
+       // textAreaNotes.setAutoscrolls(true);
         textAreaNotes.setLineWrap(true);
         textAreaNotes.setBorder(new LineBorder(Color.DARK_GRAY));
         //textAreaNotes.setToolTipText("Здесь вы можете делать заметки");
@@ -137,6 +158,8 @@ public class GUIClass
         labelCharacterAttack.setText("Атака:");
         labelCharacterHealth = new JLabel();
         labelCharacterHealth.setText("Здоровье: ");
+        labelCurrentDiceStatus = new JLabel("");
+        labelDiceThrowResult = new JLabel("Результат броска кубика:");
 
 
 
@@ -166,6 +189,14 @@ public class GUIClass
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(nextButton);
         manageBox.add(Box.createHorizontalStrut(10));
+        manageBox.add(labelDiceThrowResult);
+        manageBox.add(Box.createHorizontalStrut(10));
+        manageBox.add(labelCurrentDiceStatus);
+        manageBox.add(Box.createHorizontalStrut(10));
+        manageBox.add(buttonThrowDice);
+        manageBox.add(Box.createHorizontalStrut(10));
+
+
 
         characterBox.add(Box.createHorizontalStrut(10));
         characterBox.add(labelCharacterHealth);
