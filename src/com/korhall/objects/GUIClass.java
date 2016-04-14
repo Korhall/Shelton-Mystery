@@ -12,6 +12,14 @@ import org.pushingpixels.substance.api.skin.*;*/
 /**
  * Created by srv3 on 27.01.2016.
  */
+
+/*
+* Для хранения истории переходов необходимо создаль arraylist и добавлять
+* туда номер предыдущего параграфа при каждом переходе по кнопке далее
+*
+*
+* */
+
 public class GUIClass
 {
     JFrame mainFrame;
