@@ -19,7 +19,10 @@ public class GUIClass
     JButton nextButton;
     JButton buttonAbout;
     JButton buttonSaveCurrentProgress;
+    JButton buttonNewGame;
+
     JTextField textFieldNextPoint;
+
     JLabel labelPointNumber;
     JLabel labelCharacterAttack;
     JLabel labelCharacterHealth;
@@ -54,6 +57,13 @@ public class GUIClass
         }
     }
 
+    public class NewGame implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            mainText.setText(gameText.gameTextet[0]);
+        }
+    }
+
 
 
 
@@ -80,11 +90,17 @@ public class GUIClass
         nextButton.addActionListener(new NextPoint());
         buttonAbout = new JButton("О программе");
         buttonSaveCurrentProgress = new JButton("Сохранить");
+        buttonNewGame = new JButton("Новая игра");
+        buttonNewGame.addActionListener(new NewGame());
 
 
         mainText = new JTextArea();
         mainText.setEditable(false);
-        mainText.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        mainText.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 16));
+        mainText.setWrapStyleWord(true);
+        mainText.setAutoscrolls(true);
+        mainText.setText(gameText.gameTextet[0]);
+        mainText.setLineWrap(true);
 
         textFieldNextPoint = new JTextField(50);
 
@@ -138,6 +154,8 @@ public class GUIClass
 
         textBox.add(mainText);
 
+        menuBox.add(Box.createHorizontalStrut(10));
+        menuBox.add(buttonNewGame);
         menuBox.add(Box.createHorizontalStrut(10));
         menuBox.add(buttonSaveCurrentProgress);
         menuBox.add(Box.createHorizontalStrut(10));

@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22cafb72-dc36-4a74-bda3-c7cc70a34bd0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gradle.build" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$AboutThisProgramm.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$AboutThisProgramm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$NextPoint.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$NextPoint.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GameText.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GameText.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Shelton_Mystery_jar/Shelton-Mystery.jar" afterPath="$PROJECT_DIR$/out/artifacts/Shelton_Mystery_jar/Shelton-Mystery.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java" afterPath="$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/korhall/objects/GameText.java" afterPath="$PROJECT_DIR$/src/com/korhall/objects/GameText.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Shelton-Mystery.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,10 +32,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Shelton-Mystery.iml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Shelton-Mystery.iml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Shelton-Mystery.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4347826">
+            <state vertical-scroll-proportion="0.0">
               <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
               <folding />
             </state>
@@ -48,19 +56,21 @@
         <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GameText.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+              <caret line="86" column="51" selection-start-line="86" selection-start-column="51" selection-end-line="86" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GUIClass.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GUIClass.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.73913044">
+              <caret line="158" column="51" selection-start-line="158" selection-start-column="51" selection-end-line="158" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1491#1492#0" expanded="true" />
+                <element signature="e#1555#1556#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,11 +108,12 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/korhall/Main.java" />
         <option value="$PROJECT_DIR$/src/com/korhall/main/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/korhall/objects/GameText.java" />
         <option value="$PROJECT_DIR$/src/com/korhall/listeners/NextPoint.java" />
         <option value="$PROJECT_DIR$/src/com/korhall/objects/AboutThisProgramm.java" />
-        <option value="$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java" />
         <option value="$PROJECT_DIR$/src/gradle.build" />
+        <option value="$PROJECT_DIR$/src/com/korhall/objects/GameText.java" />
+        <option value="$PROJECT_DIR$/src/com/korhall/objects/NewGame.java" />
+        <option value="$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java" />
       </list>
     </option>
   </component>
@@ -256,7 +267,7 @@
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.null" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
@@ -559,6 +570,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/korhall/resources/Symbol_Forward_2.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Shelton-Mystery.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/korhall/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -570,31 +594,20 @@
     <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GameText.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <caret line="86" column="51" selection-start-line="86" selection-start-column="51" selection-end-line="86" selection-end-column="51" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/korhall/resources/Symbol_Forward_2.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.73913044">
+          <caret line="158" column="51" selection-start-line="158" selection-start-column="51" selection-end-line="158" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1555#1556#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Shelton-Mystery.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4347826">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
