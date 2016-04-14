@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="shelton-mystery" default="all">
+  
+  
+  <property file="shelton-mystery.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.tox/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.apk"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module Shelton-Mystery -->
+  
+  <dirname property="module.shelton-mystery.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.shelton-mystery" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.shelton-mystery" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.shelton-mystery" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.shelton-mystery" value="-encoding windows-1251 -source 8 ${compiler.args}"/>
+  
+  <property name="shelton-mystery.output.dir" value="${module.shelton-mystery.basedir}/out/production/Shelton-Mystery"/>
+  <property name="shelton-mystery.testoutput.dir" value="${module.shelton-mystery.basedir}/out/test/Shelton-Mystery"/>
+  
+  <path id="shelton-mystery.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="shelton-mystery.module.production.classpath">
+    <path refid="${module.jdk.classpath.shelton-mystery}"/>
+  </path>
+  
+  <path id="shelton-mystery.runtime.production.module.classpath">
+    <pathelement location="${shelton-mystery.output.dir}"/>
+  </path>
+  
+  <path id="shelton-mystery.module.classpath">
+    <path refid="${module.jdk.classpath.shelton-mystery}"/>
+    <pathelement location="${shelton-mystery.output.dir}"/>
+  </path>
+  
+  <path id="shelton-mystery.runtime.module.classpath">
+    <pathelement location="${shelton-mystery.testoutput.dir}"/>
+    <pathelement location="${shelton-mystery.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.shelton-mystery">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.shelton-mystery">
+    <patternset refid="excluded.from.module.shelton-mystery"/>
+  </patternset>
+  
+  <path id="shelton-mystery.module.sourcepath">
+    <dirset dir="${module.shelton-mystery.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.shelton-mystery" depends="compile.module.shelton-mystery.production,compile.module.shelton-mystery.tests" description="Compile module Shelton-Mystery"/>
+  
+  <target name="compile.module.shelton-mystery.production" depends="register.custom.compilers" description="Compile module Shelton-Mystery; production classes">
+    <mkdir dir="${shelton-mystery.output.dir}"/>
+    <javac2 destdir="${shelton-mystery.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.shelton-mystery}/javac">
+      <compilerarg line="${compiler.args.shelton-mystery}"/>
+      <bootclasspath refid="shelton-mystery.module.bootclasspath"/>
+      <classpath refid="shelton-mystery.module.production.classpath"/>
+      <src refid="shelton-mystery.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.shelton-mystery"/>
+    </javac2>
+    
+    <copy todir="${shelton-mystery.output.dir}">
+      <fileset dir="${module.shelton-mystery.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.shelton-mystery.tests" depends="register.custom.compilers,compile.module.shelton-mystery.production" description="compile module Shelton-Mystery; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.shelton-mystery" description="cleanup module">
+    <delete dir="${shelton-mystery.output.dir}"/>
+    <delete dir="${shelton-mystery.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.shelton-mystery" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.shelton-mystery" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
