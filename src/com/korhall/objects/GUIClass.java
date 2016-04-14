@@ -124,16 +124,11 @@ public class GUIClass
         textBox.setBorder(new TitledBorder("Тайна капитана Шелтона"));
 
         manageBox = Box.createHorizontalBox();
-        //        manageBox.setBorder(new TitledBorder(""));
-
+        manageBox.setBorder(new TitledBorder("Управление"));
 
         mainFrame.setSize(1024, 1280);
         textFieldNextPoint.setBackground(Color.LIGHT_GRAY);
         textFieldNextPoint.setMaximumSize(new Dimension(60, 40));
-
-
-
-
 
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(labelPointNumber);
