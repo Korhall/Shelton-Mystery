@@ -96,6 +96,38 @@ public class GUIClass
     }
 
 
+/*    public class HealthStatus implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            mainText.setText(gameText.gameTextet[4]);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            labelCharacterHealth.setFont(new Font("Raster Fonts", Font.BOLD, 14));
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            labelCharacterHealth.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+
+        }
+    }*/
+
+
+
 
 
 
@@ -138,10 +170,10 @@ public class GUIClass
         mainText.setBorder(new LineBorder(Color.DARK_GRAY));
    //     mainText.setMinimumSize(new Dimension(1200, 800));
 
-        scrollPaneNotes = new JScrollPane();
+       /* scrollPaneNotes = new JScrollPane();
         scrollPaneNotes.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPaneNotes.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
+*/
 
         textAreaNotes = new JTextArea();
         textAreaNotes.setEditable(true);
@@ -165,6 +197,8 @@ public class GUIClass
         labelCharacterAttack.setText("Атака:");
         labelCharacterHealth = new JLabel();
         labelCharacterHealth.setText("Здоровье: ");
+//        labelCharacterHealth.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+//        labelCharacterHealth.addMouseListener(new HealthStatus());
         labelCurrentDiceStatus = new JLabel("");
         labelDiceThrowResult = new JLabel("Результат броска кубика:");
 
@@ -215,7 +249,7 @@ public class GUIClass
         textBox.add(mainText);
         textBox.add(Box.createVerticalStrut(10));
         textBox.add(textAreaNotes);
-        textBox.add(scrollPaneNotes);
+//        textBox.add(scrollPaneNotes);
 
         menuBox.add(Box.createHorizontalStrut(10));
         menuBox.add(buttonNewGame);
