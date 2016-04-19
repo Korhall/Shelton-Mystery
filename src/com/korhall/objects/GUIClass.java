@@ -32,6 +32,12 @@ public class GUIClass
     JButton buttonSaveCurrentProgress;
     JButton buttonNewGame;
     JButton buttonThrowDice;
+    JButton buttonCharacterHealthUP;
+    JButton buttonCharacterHealthDOWN;
+    JButton buttonCharacterAttackUP;
+    JButton buttonCharacterAttackDOWN;
+    JButton buttonCharacterLuckUP;
+    JButton buttonCharacterLuckDOWN;
 
     JTextField textFieldNextPoint;
 
@@ -40,6 +46,11 @@ public class GUIClass
     JLabel labelCharacterHealth;
     JLabel labelCurrentDiceStatus;
     JLabel labelDiceThrowResult;
+    JLabel labelCharacterLuck;
+    JLabel labelCharacterHealthStatus;
+    JLabel labelCharacterAttackStatus;
+    JLabel labelCharacterLuckStatus;
+
 
     JScrollPane scrollPaneNotes;
 
@@ -98,8 +109,66 @@ public class GUIClass
         }
     }
 
+    public class ChangeHealthUP implements ActionListener{
 
-/*    public class HealthStatus implements MouseListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int i = Integer.valueOf(labelCharacterHealthStatus.getText());
+            i++;
+            labelCharacterHealthStatus.setText(String.valueOf(i));
+        }
+    }
+
+    public class ChangeHealthDOWN implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int i = Integer.valueOf(labelCharacterHealthStatus.getText());
+            i--;
+            labelCharacterHealthStatus.setText(String.valueOf(i));
+        }
+    }
+
+    public class ChangeAttackUP implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int i = Integer.valueOf(labelCharacterAttackStatus.getText());
+            i++;
+            labelCharacterAttackStatus.setText(String.valueOf(i));
+        }
+    }
+
+    public class ChangeAttackDOWN implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int i = Integer.valueOf(labelCharacterAttackStatus.getText());
+            i--;
+            labelCharacterAttackStatus.setText(String.valueOf(i));
+        }
+    }
+
+    public class ChangeLuckUP implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int i = Integer.valueOf(labelCharacterLuckStatus.getText());
+            i++;
+            labelCharacterLuckStatus.setText(String.valueOf(i));
+        }
+    }
+
+    public class ChangeLuckDOWN implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int i = Integer.valueOf(labelCharacterLuckStatus.getText());
+            i--;
+            labelCharacterLuckStatus.setText(String.valueOf(i));
+        }
+    }
+/*    public class LabelChangeText implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
@@ -151,6 +220,7 @@ public class GUIClass
 
         ImageIcon iconNextButton = new ImageIcon("Symbol_Forward_2.gif");
 
+//      БЛОК ИНИЦИАЛИЗАЦИИ BUTTON
         nextButton = new JButton("Далее", iconNextButton);
  //       nextButton.setPreferredSize(new Dimension(30, 100));
 //        nextButton.setSize(60, 40);
@@ -161,7 +231,18 @@ public class GUIClass
         buttonNewGame.addActionListener(new NewGame());
         buttonThrowDice = new JButton("Бросить кубик");
         buttonThrowDice.addActionListener(new ThrowDice());
-
+        buttonCharacterHealthUP = new JButton("Здоровье +");
+        buttonCharacterHealthUP.addActionListener(new ChangeHealthUP());
+        buttonCharacterHealthDOWN = new JButton("Здоровье -");
+        buttonCharacterHealthDOWN.addActionListener(new ChangeHealthDOWN());
+        buttonCharacterAttackUP = new JButton("Атака +");
+        buttonCharacterAttackUP.addActionListener(new ChangeAttackUP());
+        buttonCharacterAttackDOWN = new JButton("Атака -");
+        buttonCharacterAttackDOWN.addActionListener(new ChangeAttackDOWN());
+        buttonCharacterLuckUP = new JButton("Удача +");
+        buttonCharacterLuckUP.addActionListener(new ChangeLuckUP());
+        buttonCharacterLuckDOWN = new JButton("Удача -");
+        buttonCharacterLuckDOWN.addActionListener(new ChangeLuckDOWN());
 
         mainText = new JTextArea();
         mainText.setEditable(false);
@@ -194,20 +275,38 @@ public class GUIClass
         textFieldNextPoint.setBackground(Color.LIGHT_GRAY);
         textFieldNextPoint.setMaximumSize(new Dimension(60, 40));
 
+
+//      БЛОК ИНИЦИАЛИЗАЦИИ LABEL
         labelPointNumber = new JLabel();
         labelPointNumber.setText("Введите номер параграфа: ");
         labelCharacterAttack = new JLabel();
         labelCharacterAttack.setText("Атака:");
+        labelCharacterAttack.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
         labelCharacterHealth = new JLabel();
         labelCharacterHealth.setText("Здоровье: ");
-//        labelCharacterHealth.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelCharacterHealth.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
 //        labelCharacterHealth.addMouseListener(new HealthStatus());
         labelCurrentDiceStatus = new JLabel("");
         labelDiceThrowResult = new JLabel("Результат броска кубика:");
+        labelCharacterLuck = new JLabel();
+        labelCharacterLuck.setText("Удача");
+        labelCharacterLuck.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelCharacterHealthStatus = new JLabel();
+        labelCharacterHealthStatus.setText("0");
+        labelCharacterHealthStatus.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelCharacterAttackStatus = new JLabel();
+        labelCharacterAttackStatus.setText("0");
+        labelCharacterAttackStatus.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelCharacterLuckStatus = new JLabel();
+        labelCharacterLuckStatus.setText("0");
+        labelCharacterLuckStatus.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
 
 
 
-//      создание Box-ов
+
+
+
+//      БЛОК СОЗДАНИЯ BOX'ОВ
         menuBox = Box.createHorizontalBox();
         menuBox.setBorder(new TitledBorder("Меню"));
 
@@ -218,9 +317,9 @@ public class GUIClass
         characterBox.setLayout(new GridBagLayout());
         characterLayout = new GridBagConstraints();
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
-        characterLayout.weightx = 1;
+/*        characterLayout.weightx = 1;
         characterLayout.gridx = 0;
-        characterLayout.gridy = 0;
+        characterLayout.gridy = 0;*/
 
 
 
@@ -253,22 +352,93 @@ public class GUIClass
 
 
 //        characterBox.add(Box.createHorizontalStrut(10));
+
+//      БЛОК НАСТРОЙКИ GRIDBAG
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.anchor=GridBagConstraints.FIRST_LINE_START;
         characterLayout.weightx = 1;
         characterLayout.gridx = 1;
         characterLayout.gridy = 0;
         characterBox.add(labelCharacterHealth, characterLayout);
 
-        characterLayout.fill=GridBagConstraints.VERTICAL;
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
         characterLayout.weightx = 1;
         characterLayout.gridx = 1;
         characterLayout.gridy = 1;
         characterBox.add(labelCharacterAttack, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 1;
+        characterLayout.gridy = 2;
+        characterBox.add(labelCharacterLuck, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 2;
+        characterLayout.gridy = 0;
+        characterBox.add(labelCharacterHealthStatus, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 2;
+        characterLayout.gridy = 1;
+        characterBox.add(labelCharacterAttackStatus, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 2;
+        characterLayout.gridy = 2;
+        characterBox.add(labelCharacterLuckStatus, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 1;
+        characterLayout.gridy = 3;
+        characterBox.add(buttonCharacterHealthUP, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 2;
+        characterLayout.gridy = 3;
+        characterBox.add(buttonCharacterHealthDOWN, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 1;
+        characterLayout.gridy = 4;
+        characterBox.add(buttonCharacterAttackUP, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 2;
+        characterLayout.gridy = 4;
+        characterBox.add(buttonCharacterAttackDOWN, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 1;
+        characterLayout.gridy = 5;
+        characterBox.add(buttonCharacterLuckUP, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 2;
+        characterLayout.gridy = 5;
+        characterBox.add(buttonCharacterLuckDOWN, characterLayout);
+
+
+
+
+
+
 //        characterBox.add(labelCharacterHealth);
 //        characterBox.add(Box.createHorizontalStrut(10));
 //        characterBox.add(Box.createVerticalStrut(10));
 //        characterBox.add(labelCharacterAttack);
 //        characterBox.add(Box.createHorizontalStrut(10));
+
+
 
         textBox.add(mainText);
         textBox.add(Box.createVerticalStrut(10));
