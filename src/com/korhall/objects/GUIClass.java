@@ -54,18 +54,25 @@ public class GUIClass
     JLabel labelSaveCurrentProgress;
     JLabel labelNewGame;
 
+    JMenu mainMenu;
 
     JScrollPane scrollPaneNotes;
 
-    GameText gameText;
+   GameText gameText;
 
-    Box menuBox;
-//    Box characterBox;
     Box textBox;
     Box manageBox;
 
     JPanel characterBox;
+    JPanel panelMenu;
     GridBagConstraints characterLayout;
+
+    Frame frame = new Frame();
+
+
+
+
+
 
 
 
@@ -75,7 +82,8 @@ public class GUIClass
     public class NextPoint implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            int i = Integer.parseInt(textFieldNextPoint.getText());
+//            int i = Integer.parseInt(textFieldNextPoint.getText());
+            int i = Integer.valueOf(textFieldNextPoint.getText());
             mainText.setText(gameText.gameTextet[i]);
 
         }
@@ -105,34 +113,9 @@ public class GUIClass
         }
     }
 
-    public class NewGame implements MouseListener{
-
+    public class NewGame implements ActionListener{
         @Override
-        public void mouseClicked(MouseEvent e) {
-            mainText.setText(gameText.gameTextet[0]);
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            labelNewGame.setFont(new Font("Raster Fonts", Font.BOLD, 14));
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            labelNewGame.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
-
-        }
+        public void actionPerformed(ActionEvent actionEvent) { mainText.setText(gameText.gameTextet[0]); }
     }
 
     public class ChangeHealthUP implements ActionListener{
@@ -200,38 +183,6 @@ public class GUIClass
             labelCharacterLuckStatus.setText(String.valueOf(i));
         }
     }
-/*    public class LabelChangeText implements MouseListener {
-
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            mainText.setText(gameText.gameTextet[4]);
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            labelCharacterHealth.setFont(new Font("Raster Fonts", Font.BOLD, 14));
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            labelCharacterHealth.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
-
-        }
-    }*/
-
-
-
 
 
 
@@ -243,12 +194,33 @@ public class GUIClass
         JFrame.setDefaultLookAndFeelDecorated(true); // изменяет внешний вид фрэйма. Возможно эту строку я удалю.
         JDialog.setDefaultLookAndFeelDecorated(true);
 
+         Font font = new Font("Verdana", Font.PLAIN, 11);
+        JMenuBar menuBar = new JMenuBar();
+        panelMenu = new JPanel();
+        panelMenu.setLayout(new FlowLayout(FlowLayout.LEFT));
+
 
 
         gameText=new GameText();
         mainFrame = new JFrame("Тайна капитана Шелтона");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(1024, 1280);
+
+//        БЛОК СОЗДАНИЯ МЕНЮ
+        mainMenu = new JMenu("Файл");
+        JMenuItem newGame = new JMenuItem("Новая игра");
+        newGame.addActionListener(new NewGame());
+        JMenuItem saveGame = new JMenuItem("Сохранить игру");
+        JMenuItem loadGame = new JMenuItem("Загрузить игру");
+        JMenuItem aboutThisProgramm = new JMenuItem("О программе");
+        JMenuItem exitGame = new JMenuItem("Выход");
+        mainMenu.add(newGame);
+        mainMenu.add(saveGame);
+        mainMenu.add(loadGame);
+        mainMenu.add(aboutThisProgramm);
+        mainMenu.add(exitGame);
+
+
 
         ImageIcon iconNextButton = new ImageIcon("Symbol_Forward_2.gif");
 
@@ -330,26 +302,8 @@ public class GUIClass
         labelCharacterLuckStatus = new JLabel();
         labelCharacterLuckStatus.setText("0");
         labelCharacterLuckStatus.setFont(new Font("Raster Fonts", Font.BOLD, 14));
-        // label в меню
-        labelAbout = new JLabel("О программе");
-        labelAbout.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
-        labelSaveCurrentProgress = new JLabel("Сохранить");
-        labelSaveCurrentProgress.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
-        labelNewGame = new JLabel("Новая игра");
-        labelNewGame.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
-        labelNewGame.addMouseListener(new NewGame());
-
-
-
-
-
 
 //      БЛОК СОЗДАНИЯ BOX'ОВ
-        menuBox = Box.createHorizontalBox();
-        menuBox.setBorder(new TitledBorder("Меню"));
-
-/*        characterBox = Box.createHorizontalBox();
-        characterBox.setBorder(new TitledBorder("Персонаж"));*/
 
         characterBox = new JPanel();
         characterBox.setLayout(new GridBagLayout());
@@ -369,6 +323,7 @@ public class GUIClass
 
 
 
+        menuBar.add(mainMenu);
 
         // добавление элементов к Box'ам
         manageBox.add(Box.createHorizontalStrut(10));
@@ -470,44 +425,61 @@ public class GUIClass
 
 
 
-//        characterBox.add(labelCharacterHealth);
-//        characterBox.add(Box.createHorizontalStrut(10));
-//        characterBox.add(Box.createVerticalStrut(10));
-//        characterBox.add(labelCharacterAttack);
-//        characterBox.add(Box.createHorizontalStrut(10));
-
-
 
         textBox.add(mainText);
         textBox.add(Box.createVerticalStrut(10));
         textBox.add(textAreaNotes);
-//        textBox.add(scrollPaneNotes);
 
-        menuBox.add(Box.createHorizontalStrut(10));
-        menuBox.add(labelNewGame);
-        menuBox.add(Box.createHorizontalStrut(10));
-        menuBox.add(labelSaveCurrentProgress);
-        menuBox.add(Box.createHorizontalStrut(10));
-        menuBox.add(labelAbout);
+
+
+        panelMenu.add(menuBar);
 
 
 
         //      блок настройки раскладки
-//        mainFrame.getContentPane().add(BorderLayout.EAST, characterBox);
+
         mainFrame.getContentPane().add(BorderLayout.EAST, characterBox);
         mainFrame.getContentPane().add(BorderLayout.CENTER, textBox);
-        mainFrame.getContentPane().add(BorderLayout.NORTH, menuBox);
+        mainFrame.getContentPane().add(BorderLayout.NORTH, panelMenu);
         mainFrame.getContentPane().add(BorderLayout.SOUTH, manageBox);
 
         mainFrame.setVisible(true);
 
 
+
+
+
     }
 
 
-
+//    БЛОК МОДАЛЬНЫХ ОКОН
 
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
