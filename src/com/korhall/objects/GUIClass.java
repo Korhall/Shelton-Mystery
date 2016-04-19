@@ -253,6 +253,7 @@ public class GUIClass
         ImageIcon iconNextButton = new ImageIcon("Symbol_Forward_2.gif");
 
 //      БЛОК ИНИЦИАЛИЗАЦИИ BUTTON
+//______________________________________________________________________________________________________________________
         nextButton = new JButton("Далее", iconNextButton);
  //       nextButton.setPreferredSize(new Dimension(30, 100));
 //        nextButton.setSize(60, 40);
@@ -271,6 +272,7 @@ public class GUIClass
         buttonCharacterLuckUP.addActionListener(new ChangeLuckUP());
         buttonCharacterLuckDOWN = new JButton("Удача -");
         buttonCharacterLuckDOWN.addActionListener(new ChangeLuckDOWN());
+//______________________________________________________________________________________________________________________
 
         mainText = new JTextArea();
         mainText.setEditable(false);
@@ -314,7 +316,7 @@ public class GUIClass
         labelCharacterHealth.setText("Здоровье: ");
         labelCharacterHealth.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
 //        labelCharacterHealth.addMouseListener(new HealthStatus());
-        labelCurrentDiceStatus = new JLabel("");
+        labelCurrentDiceStatus = new JLabel("0");
         labelDiceThrowResult = new JLabel("Результат броска кубика:");
         labelCharacterLuck = new JLabel();
         labelCharacterLuck.setText("Удача");
