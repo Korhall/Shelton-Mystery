@@ -57,12 +57,12 @@
       <file leaf-file-name="GUIClass.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6956522">
-              <caret line="242" column="29" selection-start-line="242" selection-start-column="29" selection-end-line="242" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.9130435">
+              <caret line="159" column="13" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2638#2639#0" expanded="true" />
-                <element signature="e#2702#2703#0" expanded="true" />
+                <element signature="e#2700#2701#0" expanded="true" />
+                <element signature="e#2764#2765#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -583,8 +583,8 @@
           <caret line="201" column="10" selection-start-line="201" selection-start-column="10" selection-end-line="201" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2638#2639#0" expanded="true" />
-            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2700#2701#0" expanded="true" />
+            <element signature="e#2764#2765#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -619,8 +619,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2638#2639#0" expanded="true" />
-            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2700#2701#0" expanded="true" />
+            <element signature="e#2764#2765#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -672,12 +672,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6956522">
-          <caret line="242" column="29" selection-start-line="242" selection-start-column="29" selection-end-line="242" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.9130435">
+          <caret line="159" column="13" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2638#2639#0" expanded="true" />
-            <element signature="e#2702#2703#0" expanded="true" />
+            <element signature="e#2700#2701#0" expanded="true" />
+            <element signature="e#2764#2765#0" expanded="true" />
           </folding>
         </state>
       </provider>

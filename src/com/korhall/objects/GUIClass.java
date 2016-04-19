@@ -6,6 +6,8 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 /*import org.pushingpixels.substance.api.*;
 import org.pushingpixels.substance.api.skin.*;*/
 
@@ -28,9 +30,7 @@ public class GUIClass
     JTextArea textAreaNotes;
 
     JButton nextButton;
-    JButton buttonAbout;
-    JButton buttonSaveCurrentProgress;
-    JButton buttonNewGame;
+
     JButton buttonThrowDice;
     JButton buttonCharacterHealthUP;
     JButton buttonCharacterHealthDOWN;
@@ -50,6 +50,9 @@ public class GUIClass
     JLabel labelCharacterHealthStatus;
     JLabel labelCharacterAttackStatus;
     JLabel labelCharacterLuckStatus;
+    JLabel labelAbout;
+    JLabel labelSaveCurrentProgress;
+    JLabel labelNewGame;
 
 
     JScrollPane scrollPaneNotes;
@@ -102,10 +105,33 @@ public class GUIClass
         }
     }
 
-    public class NewGame implements ActionListener{
+    public class NewGame implements MouseListener{
+
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void mouseClicked(MouseEvent e) {
             mainText.setText(gameText.gameTextet[0]);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            labelNewGame.setFont(new Font("Raster Fonts", Font.BOLD, 14));
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            labelNewGame.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+
         }
     }
 
@@ -125,7 +151,13 @@ public class GUIClass
         public void actionPerformed(ActionEvent e) {
             int i = Integer.valueOf(labelCharacterHealthStatus.getText());
             i--;
-            labelCharacterHealthStatus.setText(String.valueOf(i));
+            if (i<0)
+            {
+                mainText.setText(gameText.gameTextet[0]);
+            }
+            else {
+                labelCharacterHealthStatus.setText(String.valueOf(i));
+            }
         }
     }
 
@@ -225,10 +257,6 @@ public class GUIClass
  //       nextButton.setPreferredSize(new Dimension(30, 100));
 //        nextButton.setSize(60, 40);
         nextButton.addActionListener(new NextPoint());
-        buttonAbout = new JButton("О программе");
-        buttonSaveCurrentProgress = new JButton("Сохранить");
-        buttonNewGame = new JButton("Новая игра");
-        buttonNewGame.addActionListener(new NewGame());
         buttonThrowDice = new JButton("Бросить кубик");
         buttonThrowDice.addActionListener(new ThrowDice());
         buttonCharacterHealthUP = new JButton("Здоровье +");
@@ -293,13 +321,21 @@ public class GUIClass
         labelCharacterLuck.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
         labelCharacterHealthStatus = new JLabel();
         labelCharacterHealthStatus.setText("0");
-        labelCharacterHealthStatus.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelCharacterHealthStatus.setFont(new Font("Raster Fonts", Font.BOLD, 14));
         labelCharacterAttackStatus = new JLabel();
         labelCharacterAttackStatus.setText("0");
-        labelCharacterAttackStatus.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelCharacterAttackStatus.setFont(new Font("Raster Fonts", Font.BOLD, 14));
         labelCharacterLuckStatus = new JLabel();
         labelCharacterLuckStatus.setText("0");
-        labelCharacterLuckStatus.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelCharacterLuckStatus.setFont(new Font("Raster Fonts", Font.BOLD, 14));
+        // label в меню
+        labelAbout = new JLabel("О программе");
+        labelAbout.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelSaveCurrentProgress = new JLabel("Сохранить");
+        labelSaveCurrentProgress.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelNewGame = new JLabel("Новая игра");
+        labelNewGame.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelNewGame.addMouseListener(new NewGame());
 
 
 
@@ -446,11 +482,11 @@ public class GUIClass
 //        textBox.add(scrollPaneNotes);
 
         menuBox.add(Box.createHorizontalStrut(10));
-        menuBox.add(buttonNewGame);
+        menuBox.add(labelNewGame);
         menuBox.add(Box.createHorizontalStrut(10));
-        menuBox.add(buttonSaveCurrentProgress);
+        menuBox.add(labelSaveCurrentProgress);
         menuBox.add(Box.createHorizontalStrut(10));
-        menuBox.add(buttonAbout);
+        menuBox.add(labelAbout);
 
 
 
