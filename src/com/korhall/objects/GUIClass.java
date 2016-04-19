@@ -46,9 +46,12 @@ public class GUIClass
     GameText gameText;
 
     Box menuBox;
-    Box characterBox;
+//    Box characterBox;
     Box textBox;
     Box manageBox;
+
+    JPanel characterBox;
+    GridBagConstraints characterLayout;
 
 
 
@@ -208,8 +211,18 @@ public class GUIClass
         menuBox = Box.createHorizontalBox();
         menuBox.setBorder(new TitledBorder("Меню"));
 
-        characterBox = Box.createHorizontalBox();
-        characterBox.setBorder(new TitledBorder("Персонаж"));
+/*        characterBox = Box.createHorizontalBox();
+        characterBox.setBorder(new TitledBorder("Персонаж"));*/
+
+        characterBox = new JPanel();
+        characterBox.setLayout(new GridBagLayout());
+        characterLayout = new GridBagConstraints();
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 0;
+        characterLayout.gridy = 0;
+
+
 
         textBox = Box.createVerticalBox();
         textBox.setBorder(new TitledBorder("Тайна капитана Шелтона"));
@@ -239,12 +252,23 @@ public class GUIClass
 
 
 
-        characterBox.add(Box.createHorizontalStrut(10));
-        characterBox.add(labelCharacterHealth);
-        characterBox.add(Box.createHorizontalStrut(10));
+//        characterBox.add(Box.createHorizontalStrut(10));
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 1;
+        characterLayout.gridy = 0;
+        characterBox.add(labelCharacterHealth, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.VERTICAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 1;
+        characterLayout.gridy = 1;
+        characterBox.add(labelCharacterAttack, characterLayout);
+//        characterBox.add(labelCharacterHealth);
+//        characterBox.add(Box.createHorizontalStrut(10));
 //        characterBox.add(Box.createVerticalStrut(10));
-        characterBox.add(labelCharacterAttack);
-        characterBox.add(Box.createHorizontalStrut(10));
+//        characterBox.add(labelCharacterAttack);
+//        characterBox.add(Box.createHorizontalStrut(10));
 
         textBox.add(mainText);
         textBox.add(Box.createVerticalStrut(10));
@@ -261,6 +285,7 @@ public class GUIClass
 
 
         //      блок настройки раскладки
+//        mainFrame.getContentPane().add(BorderLayout.EAST, characterBox);
         mainFrame.getContentPane().add(BorderLayout.EAST, characterBox);
         mainFrame.getContentPane().add(BorderLayout.CENTER, textBox);
         mainFrame.getContentPane().add(BorderLayout.NORTH, menuBox);
