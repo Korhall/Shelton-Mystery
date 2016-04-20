@@ -1,8 +1,8 @@
 package com.korhall.objects;
 
 import org.pushingpixels.substance.api.SubstanceLookAndFeel;
-import org.pushingpixels.substance.api.skin.DustCoffeeSkin;
-import org.pushingpixels.substance.api.skin.SubstanceDustCoffeeLookAndFeel;
+import org.pushingpixels.substance.api.skin.GraphiteGlassSkin;
+import org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -227,20 +227,20 @@ public class GUIClass
         try {
             JFrame.setDefaultLookAndFeelDecorated(true);
             JDialog.setDefaultLookAndFeelDecorated(true);
-//            SubstanceLookAndFeel.setSkin(new GraphiteGlassSkin());
-            SubstanceLookAndFeel.setSkin(new DustCoffeeSkin());
-//            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.GraphiteGlassSkin");
-            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.DustCoffeeSkin");
-//            UIManager.setLookAndFeel(new SubstanceGraphiteGlassLookAndFeel());
-            UIManager.setLookAndFeel(new SubstanceDustCoffeeLookAndFeel());
-            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceDustCoffeeLookAndFeel");
+            SubstanceLookAndFeel.setSkin(new GraphiteGlassSkin());
+//            SubstanceLookAndFeel.setSkin(new DustCoffeeSkin());
+            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.GraphiteGlassSkin");
+//            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.DustCoffeeSkin");
+            UIManager.setLookAndFeel(new SubstanceGraphiteGlassLookAndFeel());
+//            UIManager.setLookAndFeel(new SubstanceDustCoffeeLookAndFeel());
+            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel");
 
 
         } catch (Exception ex) {}
     }
     public GUIClass () throws UnsupportedLookAndFeelException {
 
-      setupLAF();
+
 
 
          Font font = new Font("Verdana", Font.PLAIN, 11);
@@ -490,7 +490,7 @@ public class GUIClass
         panelMenu.add(menuBar);
 
 
-
+        setupLAF();
         //      блок настройки раскладки
 
         mainFrame.getContentPane().add(BorderLayout.EAST, characterBox);
