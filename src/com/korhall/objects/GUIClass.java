@@ -1,15 +1,15 @@
 package com.korhall.objects;
 
+import org.pushingpixels.substance.api.SubstanceLookAndFeel;
+import org.pushingpixels.substance.api.skin.DustCoffeeSkin;
+import org.pushingpixels.substance.api.skin.SubstanceDustCoffeeLookAndFeel;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-/*import org.pushingpixels.substance.api.*;
-import org.pushingpixels.substance.api.skin.*;*/
 
 /**
  * Created by srv3 on 27.01.2016.
@@ -184,15 +184,64 @@ public class GUIClass
         }
     }
 
-
-
-    public GUIClass ()
+    public class ExitGame implements ActionListener
     {
-      /*  SubstanceLookAndFeel laf = new SubstanceGeminiLookAndFeel();
-        UIManager.setLookAndFeel(laf);*/
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.exit(0);
+        }
+    }
 
-        JFrame.setDefaultLookAndFeelDecorated(true); // изменяет внешний вид фрэйма. Возможно эту строку я удалю.
-        JDialog.setDefaultLookAndFeelDecorated(true);
+
+
+   /* public static void setupSubstance() {
+        try {
+            final String fileName = System.getProperty("user.home") + System.getProperty("file.separator") + "insubstantial.txt";
+            final Properties properties = new Properties();
+            org.pushingpixels.substance.api.SubstanceLookAndFeel laf = new SubstanceGeminiLookAndFeel();
+            UIManager.setLookAndFeel(laf);
+            UIManager.put(SubstanceLookAndFeel.SHOW_EXTRA_WIDGETS, Boolean.TRUE);
+            JFrame.setDefaultLookAndFeelDecorated(true);
+            JDialog.setDefaultLookAndFeelDecorated(true);
+            Runtime.getRuntime().addShutdownHook(new Thread() {
+                @Override public void run() {
+                    try {
+                        String skinClassName = SubstanceLookAndFeel.getCurrentSkin().getClass().getCanonicalName();
+                        properties.setProperty("skinClassName", skinClassName);
+                        properties.store(new FileOutputStream(fileName), fileName);
+                    } catch (Throwable t) {
+                        t.printStackTrace();
+                    }
+                }
+            });
+            properties.load(new FileInputStream(fileName));
+            String skinClassName = properties.getProperty("skinClassName");
+            laf.setSkin(skinClassName);
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+    }
+*/
+    public void setupLAF()
+    {
+        try {
+            JFrame.setDefaultLookAndFeelDecorated(true);
+            JDialog.setDefaultLookAndFeelDecorated(true);
+//            SubstanceLookAndFeel.setSkin(new GraphiteGlassSkin());
+            SubstanceLookAndFeel.setSkin(new DustCoffeeSkin());
+//            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.GraphiteGlassSkin");
+            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.DustCoffeeSkin");
+//            UIManager.setLookAndFeel(new SubstanceGraphiteGlassLookAndFeel());
+            UIManager.setLookAndFeel(new SubstanceDustCoffeeLookAndFeel());
+            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceDustCoffeeLookAndFeel");
+
+
+        } catch (Exception ex) {}
+    }
+    public GUIClass () throws UnsupportedLookAndFeelException {
+
+      setupLAF();
+
 
          Font font = new Font("Verdana", Font.PLAIN, 11);
         JMenuBar menuBar = new JMenuBar();
@@ -213,7 +262,10 @@ public class GUIClass
         JMenuItem saveGame = new JMenuItem("Сохранить игру");
         JMenuItem loadGame = new JMenuItem("Загрузить игру");
         JMenuItem aboutThisProgramm = new JMenuItem("О программе");
+        mainMenu.addSeparator();
         JMenuItem exitGame = new JMenuItem("Выход");
+        exitGame.addActionListener(new ExitGame());
+
         mainMenu.add(newGame);
         mainMenu.add(saveGame);
         mainMenu.add(loadGame);
@@ -222,13 +274,16 @@ public class GUIClass
 
 
 
+
+
+
+
+
         ImageIcon iconNextButton = new ImageIcon("Symbol_Forward_2.gif");
 
 //      БЛОК ИНИЦИАЛИЗАЦИИ BUTTON
 //______________________________________________________________________________________________________________________
         nextButton = new JButton("Далее", iconNextButton);
- //       nextButton.setPreferredSize(new Dimension(30, 100));
-//        nextButton.setSize(60, 40);
         nextButton.addActionListener(new NextPoint());
         buttonThrowDice = new JButton("Бросить кубик");
         buttonThrowDice.addActionListener(new ThrowDice());
@@ -308,7 +363,7 @@ public class GUIClass
         characterBox = new JPanel();
         characterBox.setLayout(new GridBagLayout());
         characterLayout = new GridBagConstraints();
-        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.fill = GridBagConstraints.HORIZONTAL;
 /*        characterLayout.weightx = 1;
         characterLayout.gridx = 0;
         characterLayout.gridy = 0;*/
