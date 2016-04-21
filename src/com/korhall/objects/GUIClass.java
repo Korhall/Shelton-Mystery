@@ -1,11 +1,10 @@
 package com.korhall.objects;
 
 import org.pushingpixels.substance.api.SubstanceLookAndFeel;
-import org.pushingpixels.substance.api.skin.BusinessBlackSteelSkin;
 import org.pushingpixels.substance.api.skin.*;
-import org.pushingpixels.substance.api.skin.GraphiteGlassSkin;
+import org.pushingpixels.substance.api.skin.BusinessBlackSteelSkin;
+import org.pushingpixels.substance.api.skin.MistAquaSkin;
 import org.pushingpixels.substance.api.skin.SaharaSkin;
-import org.pushingpixels.substance.api.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -237,6 +236,43 @@ public class GUIClass
         } catch (Exception ex) {}
     }
 
+    public void setupLAFBussinessBlackGlass ()
+    {
+        try {
+
+            SubstanceLookAndFeel.setSkin(new BusinessBlackSteelSkin());
+            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.BusinessBlackSteelSkin");
+            UIManager.setLookAndFeel(new SubstanceBusinessBlackSteelLookAndFeel());
+            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel");
+
+        } catch (Exception ex) {}
+    }
+
+    public void setupLAFMistAquaSkin()
+    {
+        try {
+
+            SubstanceLookAndFeel.setSkin(new MistAquaSkin());
+            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.MistAquaSkin");
+            UIManager.setLookAndFeel(new SubstanceMistAquaLookAndFeel());
+            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceMistAquaLookAndFeel");
+
+        } catch (Exception ex) {}
+    }
+
+    public void setupLAFSaharaSkin()
+    {
+        try {
+
+            SubstanceLookAndFeel.setSkin(new SaharaSkin());
+            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.SaharaSkin");
+            UIManager.setLookAndFeel(new SubstanceSaharaLookAndFeel());
+            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel");
+
+        } catch (Exception ex) {}
+    }
+
+
     public void setDefualtDecor()
     {
         JFrame.setDefaultLookAndFeelDecorated(true);
@@ -341,7 +377,6 @@ public class GUIClass
         labelCharacterHealth = new JLabel();
         labelCharacterHealth.setText("Здоровье: ");
         labelCharacterHealth.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
-//        labelCharacterHealth.addMouseListener(new HealthStatus());
         labelCurrentDiceStatus = new JLabel("0");
         labelDiceThrowResult = new JLabel("Результат броска кубика:");
         labelCharacterLuck = new JLabel();
@@ -486,6 +521,10 @@ public class GUIClass
         mainFrame.getContentPane().add(BorderLayout.NORTH, panelMenu);
         mainFrame.getContentPane().add(BorderLayout.SOUTH, manageBox);
         setupLAF();
+
+//        setupLAFBussinessBlackGlass ();
+//        setupLAFMistAquaSkin();
+//        setupLAFSaharaSkin();
         mainFrame.setVisible(true);
 
 
