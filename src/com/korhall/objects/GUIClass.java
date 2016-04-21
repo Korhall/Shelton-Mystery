@@ -1,8 +1,11 @@
 package com.korhall.objects;
 
 import org.pushingpixels.substance.api.SubstanceLookAndFeel;
+import org.pushingpixels.substance.api.skin.BusinessBlackSteelSkin;
+import org.pushingpixels.substance.api.skin.*;
 import org.pushingpixels.substance.api.skin.GraphiteGlassSkin;
-import org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel;
+import org.pushingpixels.substance.api.skin.SaharaSkin;
+import org.pushingpixels.substance.api.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -225,22 +228,25 @@ public class GUIClass
     public void setupLAF()
     {
         try {
-            JFrame.setDefaultLookAndFeelDecorated(true);
-            JDialog.setDefaultLookAndFeelDecorated(true);
-            SubstanceLookAndFeel.setSkin(new GraphiteGlassSkin());
-//            SubstanceLookAndFeel.setSkin(new DustCoffeeSkin());
-            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.GraphiteGlassSkin");
-//            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.DustCoffeeSkin");
-            UIManager.setLookAndFeel(new SubstanceGraphiteGlassLookAndFeel());
-//            UIManager.setLookAndFeel(new SubstanceDustCoffeeLookAndFeel());
-            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel");
 
+            SubstanceLookAndFeel.setSkin(new GraphiteGlassSkin());
+            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.GraphiteGlassSkin");
+            UIManager.setLookAndFeel(new SubstanceGraphiteGlassLookAndFeel());
+            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceGraphiteGlassLookAndFeel");
 
         } catch (Exception ex) {}
     }
+
+    public void setDefualtDecor()
+    {
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        JDialog.setDefaultLookAndFeelDecorated(true);
+
+    }
+
     public GUIClass () throws UnsupportedLookAndFeelException {
 
-
+     setDefualtDecor();
 
 
          Font font = new Font("Verdana", Font.PLAIN, 11);
@@ -266,11 +272,6 @@ public class GUIClass
         JMenuItem exitGame = new JMenuItem("Выход");
         exitGame.addActionListener(new ExitGame());
 
-        mainMenu.add(newGame);
-        mainMenu.add(saveGame);
-        mainMenu.add(loadGame);
-        mainMenu.add(aboutThisProgramm);
-        mainMenu.add(exitGame);
 
 
 
@@ -323,13 +324,11 @@ public class GUIClass
         //textAreaNotes.setAutoscrolls(true);
         textAreaNotes.setLineWrap(true);
         textAreaNotes.setBorder(new LineBorder(Color.DARK_GRAY));
-        //textAreaNotes.setToolTipText("Здесь вы можете делать заметки");
         textAreaNotes.setText("Здесь вы можете делать заметки");
      //   textAreaNotes.add(scrollPaneNotes);
 
 
         textFieldNextPoint = new JTextField(50);
-        textFieldNextPoint.setBackground(Color.LIGHT_GRAY);
         textFieldNextPoint.setMaximumSize(new Dimension(60, 40));
 
 
@@ -364,11 +363,6 @@ public class GUIClass
         characterBox.setLayout(new GridBagLayout());
         characterLayout = new GridBagConstraints();
         characterLayout.fill = GridBagConstraints.HORIZONTAL;
-/*        characterLayout.weightx = 1;
-        characterLayout.gridx = 0;
-        characterLayout.gridy = 0;*/
-
-
 
         textBox = Box.createVerticalBox();
         textBox.setBorder(new TitledBorder("Тайна капитана Шелтона"));
@@ -377,6 +371,12 @@ public class GUIClass
         manageBox.setBorder(new TitledBorder("Управление"));
 
 
+
+        mainMenu.add(newGame);
+        mainMenu.add(saveGame);
+        mainMenu.add(loadGame);
+        mainMenu.add(aboutThisProgramm);
+        mainMenu.add(exitGame);
 
         menuBar.add(mainMenu);
 
@@ -396,10 +396,6 @@ public class GUIClass
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(buttonThrowDice);
         manageBox.add(Box.createHorizontalStrut(10));
-
-
-
-//        characterBox.add(Box.createHorizontalStrut(10));
 
 //      БЛОК НАСТРОЙКИ GRIDBAG
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
@@ -475,29 +471,21 @@ public class GUIClass
         characterLayout.gridy = 5;
         characterBox.add(buttonCharacterLuckDOWN, characterLayout);
 
-
-
-
-
-
-
         textBox.add(mainText);
         textBox.add(Box.createVerticalStrut(10));
         textBox.add(textAreaNotes);
 
-
-
         panelMenu.add(menuBar);
 
 
-        setupLAF();
+
         //      блок настройки раскладки
 
         mainFrame.getContentPane().add(BorderLayout.EAST, characterBox);
         mainFrame.getContentPane().add(BorderLayout.CENTER, textBox);
         mainFrame.getContentPane().add(BorderLayout.NORTH, panelMenu);
         mainFrame.getContentPane().add(BorderLayout.SOUTH, manageBox);
-
+        setupLAF();
         mainFrame.setVisible(true);
 
 

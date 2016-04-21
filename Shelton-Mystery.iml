@@ -8,7 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="substance-6.3" level="project" />
-    <orderEntry type="library" exported="" name="laf-widget-6.3" level="project" />
     <orderEntry type="library" exported="" name="trident-6.3" level="project" />
+    <orderEntry type="library" exported="" name="laf-widget-6.3" level="project" />
   </component>
 </module>
