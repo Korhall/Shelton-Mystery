@@ -5,7 +5,7 @@ package com.korhall.objects;
  */
 public class GameText
 {
-    String[] gameTextet = {
+    String[] gameTextArray = {
             //параграф № 0. подгружается при старте программы
             "\t Предисловие" + "\n"+
             "Странные вещи стали твориться в последнее время в тихом портовом городке Грейкейп." + "Сначала в его " +

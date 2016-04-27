@@ -7,7 +7,9 @@ import org.pushingpixels.substance.api.skin.MistAquaSkin;
 import org.pushingpixels.substance.api.skin.SaharaSkin;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -86,7 +88,7 @@ public class GUIClass
         public void actionPerformed(ActionEvent e) {
 //            int i = Integer.parseInt(textFieldNextPoint.getText());
             int i = Integer.valueOf(textFieldNextPoint.getText());
-            mainText.setText(gameText.gameTextet[i]);
+            mainText.setText(gameText.gameTextArray[i]);
 
         }
     }
@@ -117,7 +119,7 @@ public class GUIClass
 
     public class NewGame implements ActionListener{
         @Override
-        public void actionPerformed(ActionEvent actionEvent) { mainText.setText(gameText.gameTextet[0]); }
+        public void actionPerformed(ActionEvent actionEvent) { mainText.setText(gameText.gameTextArray[0]); }
     }
 
     public class ChangeHealthUP implements ActionListener{
@@ -136,9 +138,9 @@ public class GUIClass
         public void actionPerformed(ActionEvent e) {
             int i = Integer.valueOf(labelCharacterHealthStatus.getText());
             i--;
-            if (i<0)
+            if (i<1)
             {
-                mainText.setText(gameText.gameTextet[0]);
+                mainText.setText(gameText.gameTextArray[0]);
             }
             else {
                 labelCharacterHealthStatus.setText(String.valueOf(i));
@@ -343,10 +345,11 @@ public class GUIClass
         mainText.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 16));
         mainText.setWrapStyleWord(true);
         mainText.setAutoscrolls(true);
-        mainText.setText(gameText.gameTextet[0]);
+        mainText.setText(gameText.gameTextArray[0]);
         mainText.setLineWrap(true);
         mainText.setBorder(new LineBorder(Color.DARK_GRAY));
    //     mainText.setMinimumSize(new Dimension(1200, 800));
+        mainText.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
 
        /* scrollPaneNotes = new JScrollPane();
         scrollPaneNotes.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -359,9 +362,10 @@ public class GUIClass
         textAreaNotes.setWrapStyleWord(true);
         //textAreaNotes.setAutoscrolls(true);
         textAreaNotes.setLineWrap(true);
-        textAreaNotes.setBorder(new LineBorder(Color.DARK_GRAY));
+        textAreaNotes.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
         textAreaNotes.setText("Здесь вы можете делать заметки");
      //   textAreaNotes.add(scrollPaneNotes);
+
 
 
         textFieldNextPoint = new JTextField(50);
@@ -398,6 +402,7 @@ public class GUIClass
         characterBox.setLayout(new GridBagLayout());
         characterLayout = new GridBagConstraints();
         characterLayout.fill = GridBagConstraints.HORIZONTAL;
+        characterLayout.insets=new Insets(5,5,5,5);
 
         textBox = Box.createVerticalBox();
         textBox.setBorder(new TitledBorder("Тайна капитана Шелтона"));
@@ -439,6 +444,7 @@ public class GUIClass
         characterLayout.gridx = 1;
         characterLayout.gridy = 0;
         characterBox.add(labelCharacterHealth, characterLayout);
+
 
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
         characterLayout.weightx = 1;
@@ -525,6 +531,8 @@ public class GUIClass
 //        setupLAFBussinessBlackGlass ();
 //        setupLAFMistAquaSkin();
 //        setupLAFSaharaSkin();
+
+        mainFrame.pack();
         mainFrame.setVisible(true);
 
 
