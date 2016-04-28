@@ -2,9 +2,6 @@ package com.korhall.objects;
 
 import org.pushingpixels.substance.api.SubstanceLookAndFeel;
 import org.pushingpixels.substance.api.skin.*;
-import org.pushingpixels.substance.api.skin.BusinessBlackSteelSkin;
-import org.pushingpixels.substance.api.skin.MistAquaSkin;
-import org.pushingpixels.substance.api.skin.SaharaSkin;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -14,6 +11,12 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * Created by srv3 on 27.01.2016.
@@ -26,7 +29,7 @@ import java.awt.event.ActionListener;
 *
 * */
 
-public  class  GUIClass
+public class  GUIClass implements Serializable
 {
     JFrame mainFrame;
 
@@ -77,6 +80,8 @@ public  class  GUIClass
     GridBagConstraints characterLayout;
 
     Frame frame = new Frame();
+
+
 
 
 
@@ -153,7 +158,7 @@ public  class  GUIClass
         }
     }
 
-    public class ChangeAttackUP implements ActionListener{
+    public  class ChangeAttackUP implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -229,36 +234,77 @@ public  class  GUIClass
         }
     }
 
+    public class SaveGame implements MouseListener
+    {
 
+        @Override
+        public void mouseClicked(MouseEvent e) {
 
-   /* public static void setupSubstance() {
-        try {
-            final String fileName = System.getProperty("user.home") + System.getProperty("file.separator") + "insubstantial.txt";
-            final Properties properties = new Properties();
-            org.pushingpixels.substance.api.SubstanceLookAndFeel laf = new SubstanceGeminiLookAndFeel();
-            UIManager.setLookAndFeel(laf);
-            UIManager.put(SubstanceLookAndFeel.SHOW_EXTRA_WIDGETS, Boolean.TRUE);
-            JFrame.setDefaultLookAndFeelDecorated(true);
-            JDialog.setDefaultLookAndFeelDecorated(true);
-            Runtime.getRuntime().addShutdownHook(new Thread() {
-                @Override public void run() {
-                    try {
-                        String skinClassName = SubstanceLookAndFeel.getCurrentSkin().getClass().getCanonicalName();
-                        properties.setProperty("skinClassName", skinClassName);
-                        properties.store(new FileOutputStream(fileName), fileName);
-                    } catch (Throwable t) {
-                        t.printStackTrace();
-                    }
-                }
-            });
-            properties.load(new FileInputStream(fileName));
-            String skinClassName = properties.getProperty("skinClassName");
-            laf.setSkin(skinClassName);
-        } catch (Throwable t) {
-            t.printStackTrace();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            try
+            {
+                File saveGame = new File("savegame.ser");
+                FileOutputStream fileOutputStream = new FileOutputStream(saveGame);
+                ObjectOutputStream os = new ObjectOutputStream(fileOutputStream);
+                os.writeObject(uic);
+                os.close();
+                System.out.println("Игра сохранена");
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
         }
     }
-*/
+
+
+        /* public static void setupSubstance() {
+             try {
+                 final String fileName = System.getProperty("user.home") + System.getProperty("file.separator") + "insubstantial.txt";
+                 final Properties properties = new Properties();
+                 org.pushingpixels.substance.api.SubstanceLookAndFeel laf = new SubstanceGeminiLookAndFeel();
+                 UIManager.setLookAndFeel(laf);
+                 UIManager.put(SubstanceLookAndFeel.SHOW_EXTRA_WIDGETS, Boolean.TRUE);
+                 JFrame.setDefaultLookAndFeelDecorated(true);
+                 JDialog.setDefaultLookAndFeelDecorated(true);
+                 Runtime.getRuntime().addShutdownHook(new Thread() {
+                     @Override public void run() {
+                         try {
+                             String skinClassName = SubstanceLookAndFeel.getCurrentSkin().getClass().getCanonicalName();
+                             properties.setProperty("skinClassName", skinClassName);
+                             properties.store(new FileOutputStream(fileName), fileName);
+                         } catch (Throwable t) {
+                             t.printStackTrace();
+                         }
+                     }
+                 });
+                 properties.load(new FileInputStream(fileName));
+                 String skinClassName = properties.getProperty("skinClassName");
+                 laf.setSkin(skinClassName);
+             } catch (Throwable t) {
+                 t.printStackTrace();
+             }
+         }
+     */
     public void setupLAF()
     {
         try {
@@ -358,6 +404,7 @@ public  class  GUIClass
         JMenuItem newGame = new JMenuItem("Новая игра");
         newGame.addActionListener(new NewGame());
         JMenuItem saveGame = new JMenuItem("Сохранить игру");
+        saveGame.addMouseListener(new SaveGame());
         JMenuItem loadGame = new JMenuItem("Загрузить игру");
         JMenuItem aboutThisProgramm = new JMenuItem("О программе");
         mainMenu.addSeparator();
