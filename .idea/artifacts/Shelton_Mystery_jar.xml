@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact name="Shelton-Mystery:jar">
+  <artifact build-on-make="true" name="Shelton-Mystery:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Shelton_Mystery_jar</output-path>
     <root id="root">
       <element id="archive" name="Shelton-Mystery.jar">

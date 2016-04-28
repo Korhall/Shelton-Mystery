@@ -4,7 +4,12 @@
     <root id="archive" name="Shelton-Mystery.jar">
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+        <element id="module-output" name="Shelton-Mystery" />
       </element>
+      <element id="artifact" artifact-name="Shelton-Mystery:jar" />
+      <element id="library" level="project" name="laf-widget-6.3" />
+      <element id="library" level="project" name="trident-6.3" />
+      <element id="library" level="project" name="substance-6.3" />
     </root>
   </artifact>
 </component>
