@@ -42,6 +42,9 @@ public  class  GUIClass
     JButton buttonCharacterAttackDOWN;
     JButton buttonCharacterLuckUP;
     JButton buttonCharacterLuckDOWN;
+    JButton buttonCharachterGoldUP;
+    JButton buttonCharachterGoldDown;
+
 
     JTextField textFieldNextPoint;
 
@@ -57,6 +60,8 @@ public  class  GUIClass
     JLabel labelAbout;
     JLabel labelSaveCurrentProgress;
     JLabel labelNewGame;
+    JLabel labelGold;
+    JLabel labelGoldAmmount;
 
     JMenu mainMenu;
 
@@ -193,6 +198,34 @@ public  class  GUIClass
         @Override
         public void actionPerformed(ActionEvent e) {
             System.exit(0);
+        }
+    }
+
+    public class ChangeGoldUP implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int i = Integer.valueOf(labelGoldAmmount.getText());
+            i++;
+            labelGoldAmmount.setText(String.valueOf(i));
+        }
+    }
+
+    public class ChangeGoldDOWN implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int i = Integer.valueOf(labelGoldAmmount.getText());
+            i--;
+            if (i<0)
+            {
+                labelGoldAmmount.setText("0");
+            }
+            else {
+                labelGoldAmmount.setText(String.valueOf(i));
+            }
         }
     }
 
@@ -359,6 +392,10 @@ public  class  GUIClass
         buttonCharacterLuckUP.addActionListener(new ChangeLuckUP());
         buttonCharacterLuckDOWN = new JButton("Óäà÷à -");
         buttonCharacterLuckDOWN.addActionListener(new ChangeLuckDOWN());
+        buttonCharachterGoldUP = new JButton("Çîëîòî +");
+        buttonCharachterGoldUP.addActionListener(new ChangeGoldUP());
+        buttonCharachterGoldDown = new JButton("Çîëîòî -");
+        buttonCharachterGoldDown.addActionListener(new ChangeGoldDOWN());
 //______________________________________________________________________________________________________________________
 
         mainText = new JTextArea();
@@ -416,6 +453,12 @@ public  class  GUIClass
         labelCharacterLuckStatus = new JLabel();
         labelCharacterLuckStatus.setText("0");
         labelCharacterLuckStatus.setFont(new Font("Raster Fonts", Font.BOLD, 14));
+        labelGold = new JLabel();
+        labelGold.setText("Çîëîòî");
+        labelGold.setFont(new Font("Raster Fonts", Font.TRUETYPE_FONT, 14));
+        labelGoldAmmount = new JLabel();
+        labelGoldAmmount.setText("15");
+        labelGoldAmmount.setFont(new Font("Raster Fonts", Font.BOLD, 14));
 
 //      ÁËÎÊ ÑÎÇÄÀÍÈß BOX'ÎÂ
 
@@ -501,37 +544,64 @@ public  class  GUIClass
         characterLayout.weightx = 1;
         characterLayout.gridx = 1;
         characterLayout.gridy = 3;
-        characterBox.add(buttonCharacterHealthUP, characterLayout);
+        characterBox.add(labelGold, characterLayout);
 
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
         characterLayout.weightx = 1;
         characterLayout.gridx = 2;
         characterLayout.gridy = 3;
+        characterBox.add(labelGoldAmmount, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 1;
+        characterLayout.gridy = 4;
+        characterBox.add(buttonCharacterHealthUP, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 2;
+        characterLayout.gridy = 4;
         characterBox.add(buttonCharacterHealthDOWN, characterLayout);
 
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
         characterLayout.weightx = 1;
         characterLayout.gridx = 1;
-        characterLayout.gridy = 4;
+        characterLayout.gridy = 5;
         characterBox.add(buttonCharacterAttackUP, characterLayout);
 
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
         characterLayout.weightx = 1;
         characterLayout.gridx = 2;
-        characterLayout.gridy = 4;
+        characterLayout.gridy = 5;
         characterBox.add(buttonCharacterAttackDOWN, characterLayout);
 
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
         characterLayout.weightx = 1;
         characterLayout.gridx = 1;
-        characterLayout.gridy = 5;
+        characterLayout.gridy = 6;
         characterBox.add(buttonCharacterLuckUP, characterLayout);
 
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
         characterLayout.weightx = 1;
         characterLayout.gridx = 2;
-        characterLayout.gridy = 5;
+        characterLayout.gridy = 6;
         characterBox.add(buttonCharacterLuckDOWN, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 1;
+        characterLayout.gridy = 7;
+        characterBox.add(buttonCharachterGoldUP, characterLayout);
+
+        characterLayout.fill=GridBagConstraints.HORIZONTAL;
+        characterLayout.weightx = 1;
+        characterLayout.gridx = 2;
+        characterLayout.gridy = 7;
+        characterBox.add(buttonCharachterGoldDown, characterLayout);
+
+
+
 
         textBox.add(mainText);
         textBox.add(Box.createVerticalStrut(10));
