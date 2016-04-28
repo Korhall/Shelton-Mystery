@@ -26,7 +26,7 @@ import java.awt.event.ActionListener;
 *
 * */
 
-public class GUIClass
+public  class  GUIClass
 {
     JFrame mainFrame;
 
@@ -246,6 +246,27 @@ public class GUIClass
             SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.BusinessBlackSteelSkin");
             UIManager.setLookAndFeel(new SubstanceBusinessBlackSteelLookAndFeel());
             UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceBusinessBlackSteelLookAndFeel");
+
+        } catch (Exception ex) {}
+    }
+    public void setupLAFAqua ()
+    {
+        try {
+
+            SubstanceLookAndFeel.setSkin(new MistAquaSkin());
+            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.MistAquaSkin");
+            UIManager.setLookAndFeel(new SubstanceMistAquaLookAndFeel());
+            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceMistAquaLookAndFeel");
+
+        } catch (Exception ex) {}
+    }    public void setupLAFGraphiteAqua ()
+    {
+        try {
+
+            SubstanceLookAndFeel.setSkin(new GraphiteAquaSkin());
+            SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.GraphiteAquaSkin");
+            UIManager.setLookAndFeel(new SubstanceGraphiteAquaLookAndFeel());
+            UIManager.setLookAndFeel("org.pushingpixels.substance.api.skin.SubstanceGraphiteAquaLookAndFeel");
 
         } catch (Exception ex) {}
     }
@@ -531,6 +552,8 @@ public class GUIClass
 //        setupLAFBussinessBlackGlass ();
 //        setupLAFMistAquaSkin();
 //        setupLAFSaharaSkin();
+//        setupLAFAqua();
+//        setupLAFGraphiteAqua ();
 
         mainFrame.pack();
         mainFrame.setVisible(true);
