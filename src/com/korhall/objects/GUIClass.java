@@ -13,10 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * Created by srv3 on 27.01.2016.
@@ -31,68 +28,56 @@ import java.io.Serializable;
 
 public class  GUIClass implements Serializable
 {
-    JFrame mainFrame;
+    transient public JFrame mainFrame;
 
-    JTextArea mainText;
+    public static JTextArea mainText;
     JTextArea textAreaNotes;
 
-    JButton nextButton;
+    transient JButton nextButton;
 
-    JButton buttonThrowDice;
-    JButton buttonCharacterHealthUP;
-    JButton buttonCharacterHealthDOWN;
-    JButton buttonCharacterAttackUP;
-    JButton buttonCharacterAttackDOWN;
-    JButton buttonCharacterLuckUP;
-    JButton buttonCharacterLuckDOWN;
-    JButton buttonCharachterGoldUP;
-    JButton buttonCharachterGoldDown;
+    transient JButton buttonThrowDice;
+    transient JButton buttonCharacterHealthUP;
+    transient JButton buttonCharacterHealthDOWN;
+    transient JButton buttonCharacterAttackUP;
+    transient JButton buttonCharacterAttackDOWN;
+    transient JButton buttonCharacterLuckUP;
+    transient JButton buttonCharacterLuckDOWN;
+    transient JButton buttonCharachterGoldUP;
+    transient JButton buttonCharachterGoldDown;
 
 
-    JTextField textFieldNextPoint;
+    transient JTextField textFieldNextPoint;
 
-    JLabel labelPointNumber;
-    JLabel labelCharacterAttack;
-    JLabel labelCharacterHealth;
-    JLabel labelCurrentDiceStatus;
-    JLabel labelDiceThrowResult;
-    JLabel labelCharacterLuck;
-    JLabel labelCharacterHealthStatus;
-    JLabel labelCharacterAttackStatus;
-    JLabel labelCharacterLuckStatus;
+    transient JLabel labelPointNumber;
+    transient JLabel labelCharacterAttack;
+    transient JLabel labelCharacterHealth;
+    transient JLabel labelCurrentDiceStatus;
+    transient JLabel labelDiceThrowResult;
+    transient JLabel labelCharacterLuck;
+    public static JLabel labelCharacterHealthStatus;
+    public JLabel labelCharacterAttackStatus;
+    public JLabel labelCharacterLuckStatus;
     JLabel labelAbout;
     JLabel labelSaveCurrentProgress;
     JLabel labelNewGame;
-    JLabel labelGold;
-    JLabel labelGoldAmmount;
+    transient JLabel labelGold;
+    public JLabel labelGoldAmmount;
 
-    JMenu mainMenu;
+    transient JMenu mainMenu;
 
-    JScrollPane scrollPaneNotes;
+    transient JScrollPane scrollPaneNotes;
 
-   GameText gameText;
+    transient GameText gameText;
 
-    Box textBox;
-    Box manageBox;
+    transient Box textBox;
+    transient Box manageBox;
 
-    JPanel characterBox;
-    JPanel panelMenu;
-    GridBagConstraints characterLayout;
+    transient JPanel characterBox;
+    transient JPanel panelMenu;
+    transient GridBagConstraints characterLayout;
 
     Frame frame = new Frame();
 
-
-
-
-
-
-
-
-
-
-
-// listener для кнопки перехода к следующему фрагменту текста. Получает содержимое текстового поля и переводит его в Int
-// после чего int используется в качестве индекса для массива с текстом книги.
     public class NextPoint implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -104,7 +89,6 @@ public class  GUIClass implements Serializable
     }
 
     public class ThrowDice implements ActionListener{
-
         @Override
         public void actionPerformed(ActionEvent e) {
             int i=0;
@@ -113,18 +97,12 @@ public class  GUIClass implements Serializable
                 String str = Integer.toString(i);
                 labelCurrentDiceStatus.setText(str);
             }
-
         }
-
-
     }
 
     public class AboutThisProgramm implements ActionListener{
-
         @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
+        public void actionPerformed(ActionEvent e) { }
     }
 
     public class NewGame implements ActionListener{
@@ -234,80 +212,130 @@ public class  GUIClass implements Serializable
         }
     }
 
-    public class SaveGame implements MouseListener
-    {
-
+    public class SaveGameText implements MouseListener {
         @Override
-        public void mouseClicked(MouseEvent e) {
-
-        }
-
+        public void mouseClicked(MouseEvent e) { }
         @Override
         public void mousePressed(MouseEvent e) {
             try
             {
-                File saveGame = new File("savegame.ser");
-                FileOutputStream fileOutputStream = new FileOutputStream(saveGame);
-                ObjectOutputStream os = new ObjectOutputStream(fileOutputStream);
-                os.writeObject(uic);
+                /*GUIClass gui = new GUIClass();
+                gui.mainText.setText(mainText.getText());*/
+                JFileChooser fileSave = new JFileChooser();
+                fileSave.showSaveDialog(frame);
+                try
+                {
+                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileSave.getSelectedFile()));
+                    bufferedWriter.write(mainText.getText());
+                    /*bufferedWriter.write(labelCharacterHealthStatus.getText());
+                    bufferedWriter.write(labelCharacterAttackStatus.getText());
+                    bufferedWriter.write(labelCharacterLuckStatus.getText());
+                    bufferedWriter.write(labelGoldAmmount.getText());
+                    bufferedWriter.write(textAreaNotes.getText());*/
+
+                    bufferedWriter.close();
+                }
+                catch (IOException ex)
+                {
+                    ex.printStackTrace();
+                }
+            }
+            catch (Exception ex)
+            { ex.printStackTrace(); }
+        }
+        @Override
+        public void mouseReleased(MouseEvent e) { }
+        @Override
+        public void mouseEntered(MouseEvent e) { }
+        @Override
+        public void mouseExited(MouseEvent e) { }
+    }
+
+    public class SaveGame implements MouseListener {
+        @Override
+        public void mouseClicked(MouseEvent e) { }
+        @Override
+        public void mousePressed(MouseEvent e) {
+            try
+            {
+                ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("game.ser"));
+                os.writeObject(GUIClass.this);
                 os.close();
                 System.out.println("Игра сохранена");
             }
             catch (Exception ex)
-            {
+            { ex.printStackTrace(); }
+        }
+        @Override
+        public void mouseReleased(MouseEvent e) { }
+        @Override
+        public void mouseEntered(MouseEvent e) { }
+        @Override
+        public void mouseExited(MouseEvent e) { }
+    }
+
+    public class LoadGameText  implements MouseListener {
+        @Override
+        public void mouseClicked(MouseEvent mouseEvent) {
+            try{
+               JFileChooser fileOpen = new JFileChooser();
+               fileOpen.showOpenDialog(frame);
+                BufferedReader reader = new BufferedReader(new FileReader(fileOpen.getSelectedFile()));
+//                BufferedReader reader = new BufferedReader(new FileReader("game.txt"));
+                String line = null;
+                while ((line = reader.readLine()) !=null)
+                {mainText.setText(line);}
+                reader.close();
+            }
+            catch (Exception ex){
                 ex.printStackTrace();
             }
+        }
+        @Override
+        public void mousePressed(MouseEvent mouseEvent) { }
+        @Override
+        public void mouseReleased(MouseEvent mouseEvent) { }
+        @Override
+        public void mouseEntered(MouseEvent mouseEvent) { }
+        @Override
+        public void mouseExited(MouseEvent mouseEvent) { }
+    }
+
+    public class LoadGame  implements MouseListener {
+        @Override
+        public void mouseClicked(MouseEvent mouseEvent) {
+         try{
+             ObjectInputStream is = new ObjectInputStream(new FileInputStream("game.ser"));
+//             GUIClass.labelCharacterHealthStatus=is.readObject();
+         }
+         catch (Exception ex){
+             ex.printStackTrace();
+         }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent mouseEvent) {
 
         }
 
         @Override
-        public void mouseReleased(MouseEvent e) {
+        public void mouseReleased(MouseEvent mouseEvent) {
 
         }
 
         @Override
-        public void mouseEntered(MouseEvent e) {
+        public void mouseEntered(MouseEvent mouseEvent) {
 
         }
 
         @Override
-        public void mouseExited(MouseEvent e) {
+        public void mouseExited(MouseEvent mouseEvent) {
 
         }
     }
 
-
-        /* public static void setupSubstance() {
-             try {
-                 final String fileName = System.getProperty("user.home") + System.getProperty("file.separator") + "insubstantial.txt";
-                 final Properties properties = new Properties();
-                 org.pushingpixels.substance.api.SubstanceLookAndFeel laf = new SubstanceGeminiLookAndFeel();
-                 UIManager.setLookAndFeel(laf);
-                 UIManager.put(SubstanceLookAndFeel.SHOW_EXTRA_WIDGETS, Boolean.TRUE);
-                 JFrame.setDefaultLookAndFeelDecorated(true);
-                 JDialog.setDefaultLookAndFeelDecorated(true);
-                 Runtime.getRuntime().addShutdownHook(new Thread() {
-                     @Override public void run() {
-                         try {
-                             String skinClassName = SubstanceLookAndFeel.getCurrentSkin().getClass().getCanonicalName();
-                             properties.setProperty("skinClassName", skinClassName);
-                             properties.store(new FileOutputStream(fileName), fileName);
-                         } catch (Throwable t) {
-                             t.printStackTrace();
-                         }
-                     }
-                 });
-                 properties.load(new FileInputStream(fileName));
-                 String skinClassName = properties.getProperty("skinClassName");
-                 laf.setSkin(skinClassName);
-             } catch (Throwable t) {
-                 t.printStackTrace();
-             }
-         }
-     */
     public void setupLAF()
-    {
-        try {
+    { try {
 
             SubstanceLookAndFeel.setSkin(new GraphiteGlassSkin());
             SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.GraphiteGlassSkin");
@@ -318,8 +346,7 @@ public class  GUIClass implements Serializable
     }
 
     public void setupLAFBussinessBlackGlass ()
-    {
-        try {
+    { try {
 
             SubstanceLookAndFeel.setSkin(new BusinessBlackSteelSkin());
             SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.BusinessBlackSteelSkin");
@@ -329,8 +356,7 @@ public class  GUIClass implements Serializable
         } catch (Exception ex) {}
     }
     public void setupLAFAqua ()
-    {
-        try {
+    { try {
 
             SubstanceLookAndFeel.setSkin(new MistAquaSkin());
             SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.MistAquaSkin");
@@ -339,8 +365,7 @@ public class  GUIClass implements Serializable
 
         } catch (Exception ex) {}
     }    public void setupLAFGraphiteAqua ()
-    {
-        try {
+    { try {
 
             SubstanceLookAndFeel.setSkin(new GraphiteAquaSkin());
             SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.GraphiteAquaSkin");
@@ -351,8 +376,7 @@ public class  GUIClass implements Serializable
     }
 
     public void setupLAFMistAquaSkin()
-    {
-        try {
+    { try {
 
             SubstanceLookAndFeel.setSkin(new MistAquaSkin());
             SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.MistAquaSkin");
@@ -363,8 +387,7 @@ public class  GUIClass implements Serializable
     }
 
     public void setupLAFSaharaSkin()
-    {
-        try {
+    { try {
 
             SubstanceLookAndFeel.setSkin(new SaharaSkin());
             SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.SaharaSkin");
@@ -379,20 +402,17 @@ public class  GUIClass implements Serializable
     {
         JFrame.setDefaultLookAndFeelDecorated(true);
         JDialog.setDefaultLookAndFeelDecorated(true);
-
     }
 
     public GUIClass () throws UnsupportedLookAndFeelException {
+//    public void go () throws UnsupportedLookAndFeelException {
 
      setDefualtDecor();
 
-
-         Font font = new Font("Verdana", Font.PLAIN, 11);
+        Font font = new Font("Verdana", Font.PLAIN, 11);
         JMenuBar menuBar = new JMenuBar();
         panelMenu = new JPanel();
         panelMenu.setLayout(new FlowLayout(FlowLayout.LEFT));
-
-
 
         gameText=new GameText();
         mainFrame = new JFrame("Тайна капитана Шелтона");
@@ -404,8 +424,9 @@ public class  GUIClass implements Serializable
         JMenuItem newGame = new JMenuItem("Новая игра");
         newGame.addActionListener(new NewGame());
         JMenuItem saveGame = new JMenuItem("Сохранить игру");
-        saveGame.addMouseListener(new SaveGame());
+        saveGame.addMouseListener(new SaveGameText());
         JMenuItem loadGame = new JMenuItem("Загрузить игру");
+        loadGame.addMouseListener(new LoadGameText());
         JMenuItem aboutThisProgramm = new JMenuItem("О программе");
         mainMenu.addSeparator();
         JMenuItem exitGame = new JMenuItem("Выход");
@@ -413,17 +434,9 @@ public class  GUIClass implements Serializable
 
 
 
-
-
-
-
-
-
-        ImageIcon iconNextButton = new ImageIcon("Symbol_Forward_2.gif");
-
 //      БЛОК ИНИЦИАЛИЗАЦИИ BUTTON
 //______________________________________________________________________________________________________________________
-        nextButton = new JButton("Далее", iconNextButton);
+        nextButton = new JButton("Далее");
         nextButton.addActionListener(new NextPoint());
         buttonThrowDice = new JButton("Бросить кубик");
         buttonThrowDice.addActionListener(new ThrowDice());
@@ -471,7 +484,9 @@ public class  GUIClass implements Serializable
         textAreaNotes.setText("Здесь вы можете делать заметки");
      //   textAreaNotes.add(scrollPaneNotes);
 
-
+        scrollPaneNotes = new JScrollPane(textAreaNotes);
+        scrollPaneNotes.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPaneNotes.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         textFieldNextPoint = new JTextField(50);
         textFieldNextPoint.setMaximumSize(new Dimension(60, 40));
@@ -517,6 +532,7 @@ public class  GUIClass implements Serializable
 
         textBox = Box.createVerticalBox();
         textBox.setBorder(new TitledBorder("Тайна капитана Шелтона"));
+        textBox.add(scrollPaneNotes);
 
         manageBox = Box.createHorizontalBox();
         manageBox.setBorder(new TitledBorder("Управление"));
@@ -534,10 +550,8 @@ public class  GUIClass implements Serializable
         // добавление элементов к Box'ам
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(labelPointNumber);
-
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(textFieldNextPoint);
-
         manageBox.add(Box.createHorizontalStrut(10));
         manageBox.add(nextButton);
         manageBox.add(Box.createHorizontalStrut(10));
@@ -555,7 +569,6 @@ public class  GUIClass implements Serializable
         characterLayout.gridx = 1;
         characterLayout.gridy = 0;
         characterBox.add(labelCharacterHealth, characterLayout);
-
 
         characterLayout.fill=GridBagConstraints.HORIZONTAL;
         characterLayout.weightx = 1;
