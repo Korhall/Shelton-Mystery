@@ -11,9 +11,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.io.*;
+import java.io.Serializable;
 
 public class  GUIClass implements Serializable
 {
@@ -96,7 +94,13 @@ public class  GUIClass implements Serializable
 
     public class NewGame implements ActionListener{
         @Override
-        public void actionPerformed(ActionEvent actionEvent) { mainText.setText(gameText.gameTextArray[0]); }
+        public void actionPerformed(ActionEvent actionEvent) { mainText.setText(gameText.gameTextArray[0]);
+        labelCharacterHealthStatus.setText("0");
+            labelGoldAmmount.setText("0");
+            labelCharacterLuckStatus.setText("0");
+            labelCharacterAttackStatus.setText("0");
+
+        }
     }
 
     public class ChangeHealthUP implements ActionListener{
@@ -201,26 +205,26 @@ public class  GUIClass implements Serializable
         }
     }
 
-    public class SaveGameText implements MouseListener {
+/*    public class SaveGameText implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) { }
         @Override
         public void mousePressed(MouseEvent e) {
             try
             {
-                /*GUIClass gui = new GUIClass();
-                gui.mainText.setText(mainText.getText());*/
+                *//*GUIClass gui = new GUIClass();
+                gui.mainText.setText(mainText.getText());*//*
                 JFileChooser fileSave = new JFileChooser();
                 fileSave.showSaveDialog(frame);
                 try
                 {
                     BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileSave.getSelectedFile()));
                     bufferedWriter.write(mainText.getText());
-                    /*bufferedWriter.write(labelCharacterHealthStatus.getText());
+                    *//*bufferedWriter.write(labelCharacterHealthStatus.getText());
                     bufferedWriter.write(labelCharacterAttackStatus.getText());
                     bufferedWriter.write(labelCharacterLuckStatus.getText());
                     bufferedWriter.write(labelGoldAmmount.getText());
-                    bufferedWriter.write(textAreaNotes.getText());*/
+                    bufferedWriter.write(textAreaNotes.getText());*//*
 
                     bufferedWriter.close();
                 }
@@ -238,8 +242,9 @@ public class  GUIClass implements Serializable
         public void mouseEntered(MouseEvent e) { }
         @Override
         public void mouseExited(MouseEvent e) { }
-    }
+    }*/
 
+/*
     public class SaveGame implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) { }
@@ -262,7 +267,9 @@ public class  GUIClass implements Serializable
         @Override
         public void mouseExited(MouseEvent e) { }
     }
+*/
 
+/*
     public class LoadGameText  implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
@@ -289,14 +296,15 @@ public class  GUIClass implements Serializable
         @Override
         public void mouseExited(MouseEvent mouseEvent) { }
     }
+*/
 
-    public class LoadGame  implements MouseListener {
+    /*public class LoadGame  implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
          try{
              ObjectInputStream is = new ObjectInputStream(new FileInputStream("game.ser"));
              String tx= (String) is.readObject();
-//             GUIClass()=is.readObject(); надо добавить смец конструктор для создания значений ключевых переменных
+//             GUIClass()=is.readObject(); надо добавить спец конструктор для создания значений ключевых переменных
          }
          catch (Exception ex){
              ex.printStackTrace();
@@ -323,7 +331,7 @@ public class  GUIClass implements Serializable
 
         }
     }
-
+*/
     public void setupLAF()
     { try {
 
@@ -413,10 +421,10 @@ public class  GUIClass implements Serializable
         mainMenu = new JMenu("Файл");
         JMenuItem newGame = new JMenuItem("Новая игра");
         newGame.addActionListener(new NewGame());
-        JMenuItem saveGame = new JMenuItem("Сохранить игру");
-        saveGame.addMouseListener(new SaveGameText());
-        JMenuItem loadGame = new JMenuItem("Загрузить игру");
-        loadGame.addMouseListener(new LoadGameText());
+//        JMenuItem saveGame = new JMenuItem("Сохранить игру");
+//        saveGame.addMouseListener(new SaveGameText());
+//        JMenuItem loadGame = new JMenuItem("Загрузить игру");
+//        loadGame.addMouseListener(new LoadGameText());
         JMenuItem aboutThisProgramm = new JMenuItem("О программе");
         mainMenu.addSeparator();
         JMenuItem exitGame = new JMenuItem("Выход");
@@ -530,8 +538,8 @@ public class  GUIClass implements Serializable
 
 
         mainMenu.add(newGame);
-        mainMenu.add(saveGame);
-        mainMenu.add(loadGame);
+//        mainMenu.add(saveGame);
+//        mainMenu.add(loadGame);
         mainMenu.add(aboutThisProgramm);
         mainMenu.add(exitGame);
 
