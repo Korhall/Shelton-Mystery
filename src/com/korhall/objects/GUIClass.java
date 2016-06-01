@@ -47,6 +47,7 @@ public class  GUIClass implements Serializable
     JLabel labelAbout;
     JLabel labelSaveCurrentProgress;
     JLabel labelNewGame;
+    JLabel labelDialogMessage;
     transient JLabel labelGold;
     public JLabel labelGoldAmmount;
 
@@ -96,7 +97,7 @@ public class  GUIClass implements Serializable
         @Override
         public void actionPerformed(ActionEvent actionEvent) { mainText.setText(gameText.gameTextArray[0]);
         labelCharacterHealthStatus.setText("0");
-            labelGoldAmmount.setText("0");
+            labelGoldAmmount.setText("15");
             labelCharacterLuckStatus.setText("0");
             labelCharacterAttackStatus.setText("0");
 
@@ -402,6 +403,25 @@ public class  GUIClass implements Serializable
         JDialog.setDefaultLookAndFeelDecorated(true);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public GUIClass () throws UnsupportedLookAndFeelException {
 //    public void go () throws UnsupportedLookAndFeelException {
 
@@ -426,6 +446,11 @@ public class  GUIClass implements Serializable
 //        JMenuItem loadGame = new JMenuItem("Загрузить игру");
 //        loadGame.addMouseListener(new LoadGameText());
         JMenuItem aboutThisProgramm = new JMenuItem("О программе");
+        aboutThisProgramm.addActionListener(new AboutDialog(mainFrame, "О программе", "Игра распространяется " +
+                "бесплатно и разработана \n на основе книги-игры Дмитрия Браславского 'Тайна капитана Шелтона' \n" +
+                "Код писал Korhall aka Антон Смирнов. \n Свои предложения и замечания вы можете присылать \n" +"на " +
+                "мой  " +
+                "e-mail: korhall@yandex.ru"));
         mainMenu.addSeparator();
         JMenuItem exitGame = new JMenuItem("Выход");
         exitGame.addActionListener(new ExitGame());
@@ -464,7 +489,7 @@ public class  GUIClass implements Serializable
         mainText.setText(gameText.gameTextArray[0]);
         mainText.setLineWrap(true);
         mainText.setBorder(new LineBorder(Color.DARK_GRAY));
-   //     mainText.setMinimumSize(new Dimension(1200, 800));
+        //     mainText.setMinimumSize(new Dimension(1200, 800));
         mainText.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
 
        /* scrollPaneNotes = new JScrollPane();
@@ -480,7 +505,7 @@ public class  GUIClass implements Serializable
         textAreaNotes.setLineWrap(true);
         textAreaNotes.setBorder(new SoftBevelBorder(BevelBorder.LOWERED));
         textAreaNotes.setText("Здесь вы можете делать заметки");
-     //   textAreaNotes.add(scrollPaneNotes);
+        //   textAreaNotes.add(scrollPaneNotes);
 
         scrollPaneNotes = new JScrollPane(textAreaNotes);
         scrollPaneNotes.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -519,6 +544,13 @@ public class  GUIClass implements Serializable
         labelGoldAmmount = new JLabel();
         labelGoldAmmount.setText("15");
         labelGoldAmmount.setFont(new Font("Raster Fonts", Font.BOLD, 14));
+        labelDialogMessage = new JLabel();
+        labelDialogMessage.setText("Игра распространяется " +
+                "бесплатно и разработана \n на основе книги-игры Дмитрия Браславского 'Тайна капитана Шелтона' \n" +
+                "Код писал Korhall aka Антон Смирнов. \n Свои предложения и замечания вы можете присылать \n" +"на " +
+                "мой  " +
+                "e-mail: korhall@yandex.ru");
+
 
 //      БЛОК СОЗДАНИЯ BOX'ОВ
 
@@ -694,6 +726,52 @@ public class  GUIClass implements Serializable
 
 
 //    БЛОК МОДАЛЬНЫХ ОКОН
+
+
+
+
+    public  class AboutDialog extends JDialog implements ActionListener {
+        boolean vis=false;
+
+
+        public AboutDialog(JFrame parent, String title, String message) {
+            super(parent, title, true);
+            if (parent != null) {
+                Dimension parentSize = parent.getSize();
+                Point p = parent.getLocation();
+                setLocation(0, p.y + parentSize.height / 4);
+            }
+            JPanel messagePane = new JPanel();
+            messagePane.add(new JLabel(message));
+            getContentPane().add(messagePane);
+            JPanel buttonPane = new JPanel();
+            JButton button = new JButton("OK");
+            buttonPane.add(button);
+            button.addActionListener(this);
+            getContentPane().add(buttonPane, BorderLayout.SOUTH);
+            setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            pack();
+            setVisible(vis);
+            setTrue();
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            setVisible(vis);
+            setTrue();
+            dispose();
+        }
+
+
+        public void setTrue() {
+            vis=true;
+        }
+
+        public void setFalse() {
+            vis = false;
+        }
+    }
+
 
 
 
