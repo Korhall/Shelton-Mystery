@@ -446,11 +446,8 @@ public class  GUIClass implements Serializable
 //        JMenuItem loadGame = new JMenuItem("Загрузить игру");
 //        loadGame.addMouseListener(new LoadGameText());
         JMenuItem aboutThisProgramm = new JMenuItem("О программе");
-        aboutThisProgramm.addActionListener(new AboutDialog(mainFrame, "О программе", "Игра распространяется " +
-                "бесплатно и разработана \n на основе книги-игры Дмитрия Браславского 'Тайна капитана Шелтона' \n" +
-                "Код писал Korhall aka Антон Смирнов. \n Свои предложения и замечания вы можете присылать \n" +"на " +
-                "мой  " +
-                "e-mail: korhall@yandex.ru"));
+        aboutThisProgramm.addActionListener(new AboutDialog(mainFrame, "О праграмме", "Игра распространяется бесплатно и разработана \n на основе книги-игры Дмитрия Браславского \n 'Тайна капитана Шелтона' \n" +
+                "Код писал Korhall aka Антон Смирнов." +" \n" +" Свои предложения и замечания вы можете присылать \n на мой e - mail: korhall @yandex.ru"));
         mainMenu.addSeparator();
         JMenuItem exitGame = new JMenuItem("Выход");
         exitGame.addActionListener(new ExitGame());
@@ -545,11 +542,10 @@ public class  GUIClass implements Serializable
         labelGoldAmmount.setText("15");
         labelGoldAmmount.setFont(new Font("Raster Fonts", Font.BOLD, 14));
         labelDialogMessage = new JLabel();
-        labelDialogMessage.setText("Игра распространяется " +
-                "бесплатно и разработана \n на основе книги-игры Дмитрия Браславского 'Тайна капитана Шелтона' \n" +
-                "Код писал Korhall aka Антон Смирнов. \n Свои предложения и замечания вы можете присылать \n" +"на " +
-                "мой  " +
-                "e-mail: korhall@yandex.ru");
+/*        labelDialogMessage.setText("Игра распространяется бесплатно и разработана \n на основе книги-игры Дмитрия Браславского \n 'Тайна капитана Шелтона' \n" +
+                "Код писал Korhall aka Антон Смирнов." +" \n" +" Свои предложения и замечания вы можете присылать \n на мой e - mail: korhall @yandex.ru");
+        String message = labelDialogMessage.getText();
+        */
 
 
 //      БЛОК СОЗДАНИЯ BOX'ОВ
@@ -739,10 +735,14 @@ public class  GUIClass implements Serializable
             if (parent != null) {
                 Dimension parentSize = parent.getSize();
                 Point p = parent.getLocation();
-                setLocation(0, p.y + parentSize.height / 4);
+                setLocation(p.x + parentSize.width/4, p.y + parentSize.height / 4);
             }
+            setSize(450, 250);
+            JTextArea about=new JTextArea();
+            about.setText(message);
+            about.setWrapStyleWord(true);
             JPanel messagePane = new JPanel();
-            messagePane.add(new JLabel(message));
+            messagePane.add(about);
             getContentPane().add(messagePane);
             JPanel buttonPane = new JPanel();
             JButton button = new JButton("OK");
@@ -750,7 +750,7 @@ public class  GUIClass implements Serializable
             button.addActionListener(this);
             getContentPane().add(buttonPane, BorderLayout.SOUTH);
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            pack();
+//            pack();
             setVisible(vis);
             setTrue();
         }
