@@ -15,20 +15,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.*;
 
-/**
- * Created by srv3 on 27.01.2016.
- */
-
-/*
-* Для хранения истории переходов необходимо создаль arraylist и добавлять
-* туда номер предыдущего параграфа при каждом переходе по кнопке далее
-*
-*
-* */
-
 public class  GUIClass implements Serializable
 {
-    transient public JFrame mainFrame;
+    transient public  JFrame mainFrame;
 
     public static JTextArea mainText;
     JTextArea textAreaNotes;
@@ -279,7 +268,7 @@ public class  GUIClass implements Serializable
         public void mouseClicked(MouseEvent mouseEvent) {
             try{
                JFileChooser fileOpen = new JFileChooser();
-               fileOpen.showOpenDialog(frame);
+               fileOpen.showOpenDialog(mainFrame);
                 BufferedReader reader = new BufferedReader(new FileReader(fileOpen.getSelectedFile()));
 //                BufferedReader reader = new BufferedReader(new FileReader("game.txt"));
                 String line = null;
@@ -306,7 +295,8 @@ public class  GUIClass implements Serializable
         public void mouseClicked(MouseEvent mouseEvent) {
          try{
              ObjectInputStream is = new ObjectInputStream(new FileInputStream("game.ser"));
-//             GUIClass.labelCharacterHealthStatus=is.readObject();
+             String tx= (String) is.readObject();
+//             GUIClass()=is.readObject(); надо добавить смец конструктор для создания значений ключевых переменных
          }
          catch (Exception ex){
              ex.printStackTrace();

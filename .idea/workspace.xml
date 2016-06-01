@@ -10,21 +10,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Shelton_Mystery/Shelton-Mystery.jar" afterPath="$PROJECT_DIR$/out/artifacts/Shelton_Mystery/Shelton-Mystery.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Shelton_Mystery_jar/Shelton-Mystery.jar" afterPath="$PROJECT_DIR$/out/artifacts/Shelton_Mystery_jar/Shelton-Mystery.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/main/Main.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/main/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$AboutThisProgramm.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$AboutThisProgramm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeAttackDOWN.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeAttackDOWN.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeAttackUP.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeAttackUP.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeGoldDOWN.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeGoldDOWN.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeGoldUP.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeGoldUP.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeHealthDOWN.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeHealthDOWN.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeHealthUP.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeHealthUP.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeLuckDOWN.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeLuckDOWN.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeLuckUP.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ChangeLuckUP.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ExitGame.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ExitGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$NewGame.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$NewGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$NextPoint.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$NextPoint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ThrowDice.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$ThrowDice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$LoadGameText.class" afterPath="$PROJECT_DIR$/out/production/Shelton-Mystery/com/korhall/objects/GUIClass$LoadGameText.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/korhall/main/Main.java" afterPath="$PROJECT_DIR$/src/com/korhall/main/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java" afterPath="$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java" />
@@ -49,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="GUIClass.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GUIClass.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="229" column="22" selection-start-line="229" selection-start-column="20" selection-end-line="233" selection-end-column="68" />
+            <state relative-caret-position="456">
+              <caret line="298" column="115" selection-start-line="298" selection-start-column="115" selection-end-line="298" selection-end-column="115" />
               <folding />
             </state>
           </provider>
@@ -62,18 +48,18 @@
       <file leaf-file-name="GameText.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GameText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
+            <state relative-caret-position="88820">
               <caret line="4441" column="26" selection-start-line="4441" selection-start-column="26" selection-end-line="4441" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/korhall/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+            <state relative-caret-position="654">
+              <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -130,8 +116,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -182,52 +166,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Shelton-Mystery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Shelton-Mystery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="korhall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="objects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Shelton-Mystery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Shelton-Mystery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="korhall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -404,28 +346,28 @@
     <frame x="-9" y="-9" width="1938" height="1064" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18072917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3223684" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18072917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39876354" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3223684" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39876354" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -450,6 +392,54 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GameText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88820">
+          <caret line="4441" column="26" selection-start-line="4441" selection-start-column="26" selection-end-line="4441" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/korhall/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4280">
+          <caret line="229" column="22" selection-start-line="229" selection-start-column="20" selection-end-line="233" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GameText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88820">
+          <caret line="4441" column="26" selection-start-line="4441" selection-start-column="26" selection-end-line="4441" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/korhall/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -658,24 +648,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GameText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
+        <state relative-caret-position="88820">
           <caret line="4441" column="26" selection-start-line="4441" selection-start-column="26" selection-end-line="4441" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="229" column="22" selection-start-line="229" selection-start-column="20" selection-end-line="233" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/korhall/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        <state relative-caret-position="654">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/korhall/objects/GUIClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="298" column="115" selection-start-line="298" selection-start-column="115" selection-end-line="298" selection-end-column="115" />
           <folding />
         </state>
       </provider>
